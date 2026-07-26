@@ -1,7 +1,7 @@
 {
   "name": "@tofrankie/bytemd-plugin-highlight",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "packageManager": "pnpm@10.33.4",
   "description": "ByteMD plugin to highlight code blocks",
   "author": "Frankie <1426203851@qq.com>",
