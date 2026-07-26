@@ -1,6 +1,6 @@
 # bytemd-plugin-github-alerts
 
-[![npm version](https://img.shields.io/npm/v/bytemd-plugin-github-alerts)](https://www.npmjs.com/package/bytemd-plugin-github-alerts) [![npm package license](https://img.shields.io/npm/l/bytemd-plugin-github-alerts)](https://github.com/tofrankie/bytemd-plugin/blob/main/LICENSE) [![npm last update](https://img.shields.io/npm/last-update/bytemd-plugin-github-alerts)](https://www.npmjs.com/package/bytemd-plugin-github-alerts)
+[![npm version](https://img.shields.io/npm/v/bytemd-plugin-github-alerts)](https://www.npmjs.com/package/bytemd-plugin-github-alerts) [![npm package license](https://img.shields.io/npm/l/bytemd-plugin-github-alerts)](https://github.com/tofrankie/bytemd-plugin/blob/main/packages/github-alerts/LICENSE) [![npm last update](https://img.shields.io/npm/last-update/bytemd-plugin-github-alerts)](https://www.npmjs.com/package/bytemd-plugin-github-alerts)
 
 A bytemd plugin that supports [GitHub Alerts](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts).
 
