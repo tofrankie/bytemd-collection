@@ -32,7 +32,8 @@
   "jsdelivr": "./dist/index.umd.js",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "CHANGELOG.md"
   ],
   "publishConfig": {
     "access": "public"
