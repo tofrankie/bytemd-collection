@@ -54,6 +54,16 @@ importers:
         specifier: ^1.22.0
         version: 1.22.0
 
+  packages/highlight:
+    dependencies:
+      highlight.js:
+        specifier: ^11.11.1
+        version: 11.11.1
+    devDependencies:
+      bytemd:
+        specifier: ^1.22.0
+        version: 1.22.0
+
   packages/mermaid:
     dependencies:
       mermaid:
@@ -69,6 +79,9 @@ importers:
       '@bytemd/react':
         specifier: ^1.22.0
         version: 1.22.0(react@19.2.6)
+      '@tofrankie/bytemd-plugin-highlight':
+        specifier: workspace:*
+        version: link:../packages/highlight
       bytemd:
         specifier: ^1.22.0
         version: 1.22.0
@@ -81,6 +94,9 @@ importers:
       github-markdown-css:
         specifier: ^5.9.0
         version: 5.9.0
+      highlight.js:
+        specifier: ^11.11.1
+        version: 11.11.1
       react:
         specifier: ^19.2.6
         version: 19.2.6
@@ -3243,6 +3259,10 @@ packages:
 
   hastscript@7.2.0:
     resolution: {integrity: sha512-TtYPq24IldU8iKoJQqvZOuhi5CyCQRAbvDOX0x1eW6rsHSxa/1i2CCiptNTotGHJ3VoHRGmqiv6/D3q113ikkw==}
+
+  highlight.js@11.11.1:
+    resolution: {integrity: sha512-Xwwo44whKBVCYoliBQwaPvtd/2tYFkRQtXDWj1nackaV2JPXx3L0+Jvd8/qCJ2p+ML0/XVkJ2q+Mr+UVdpJK5w==}
+    engines: {node: '>=12.0.0'}
 
   hookable@6.1.1:
     resolution: {integrity: sha512-U9LYDy1CwhMCnprUfeAZWZGByVbhd54hwepegYTK7Pi5NvqEj63ifz5z+xukznehT7i6NIZRu89Ay1AZmRsLEQ==}
@@ -8869,6 +8889,8 @@ snapshots:
       hast-util-parse-selector: 3.1.1
       property-information: 6.5.0
       space-separated-tokens: 2.0.2
+
+  highlight.js@11.11.1: {}
 
   hookable@6.1.1: {}
 

@@ -6,6 +6,12 @@ export const ROUTES = [
     description: 'GitHub Alerts 测试示例',
   },
   {
+    id: 'highlight',
+    path: '/highlight',
+    title: 'Highlight',
+    description: 'Highlight.js 代码高亮测试示例',
+  },
+  {
     id: 'mermaid',
     path: '/mermaid',
     title: 'Mermaid',

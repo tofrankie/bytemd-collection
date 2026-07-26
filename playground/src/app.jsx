@@ -1,6 +1,7 @@
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
 import { ROUTES } from './constants'
 import GithubAlertsPage from './pages/github-alerts'
+import HighlightPage from './pages/highlight'
 import HomePage from './pages/index'
 import MermaidPage from './pages/mermaid'
 
@@ -10,6 +11,7 @@ function AppShell() {
 
 const exampleRouteElements = {
   'github-alerts': <GithubAlertsPage />,
+  highlight: <HighlightPage />,
   mermaid: <MermaidPage />,
 }
 

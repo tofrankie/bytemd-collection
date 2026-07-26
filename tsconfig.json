@@ -1,6 +1,7 @@
 {
   "references": [
     { "path": "./packages/github-alerts/tsconfig.json" },
+    { "path": "./packages/highlight/tsconfig.json" },
     { "path": "./packages/mermaid/tsconfig.json" }
   ],
   "files": []
