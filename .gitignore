@@ -34,3 +34,7 @@ coverage/
 !.env.example
 *.tgz
 *.vsix
+
+# @tofrankie/bytemd-plugin-highlight
+packages/highlight/scss/
+packages/highlight/styles/

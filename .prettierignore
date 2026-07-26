@@ -1,1 +1,4 @@
 pnpm-lock.yaml
+
+packages/highlight/styles/
+packages/highlight/scss/

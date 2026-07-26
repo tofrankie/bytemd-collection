@@ -7,7 +7,7 @@ ByteMD plugin for highlighting code blocks with [highlight.js](https://highlight
 ## Usage
 
 ```bash
-pnpm add bytemd @bytemd/react @tofrankie/bytemd-plugin-highlight highlight.js
+pnpm add bytemd @bytemd/react @tofrankie/bytemd-plugin-highlight
 ```
 
 ````jsx
@@ -15,7 +15,7 @@ import { Editor } from '@bytemd/react'
 import highlight from '@tofrankie/bytemd-plugin-highlight'
 import { useState } from 'react'
 import 'bytemd/dist/index.css'
-import 'highlight.js/styles/github.css'
+import '@tofrankie/bytemd-plugin-highlight/styles/github.css'
 
 const plugins = [highlight()]
 
@@ -38,6 +38,28 @@ const plugins = [
     },
   }),
 ]
+```
+
+## Bundled Styles
+
+This package republishes a small subset of `highlight.js` themes so you can import them directly from the plugin package.
+
+```js
+import '@tofrankie/bytemd-plugin-highlight/styles/default.css'
+import '@tofrankie/bytemd-plugin-highlight/styles/dark.css'
+import '@tofrankie/bytemd-plugin-highlight/styles/github.css'
+import '@tofrankie/bytemd-plugin-highlight/styles/github-dark.css'
+import '@tofrankie/bytemd-plugin-highlight/styles/github-dark-dimmed.css'
+```
+
+SCSS sources are also available:
+
+```scss
+@use '@tofrankie/bytemd-plugin-highlight/scss/default';
+@use '@tofrankie/bytemd-plugin-highlight/scss/dark';
+@use '@tofrankie/bytemd-plugin-highlight/scss/github';
+@use '@tofrankie/bytemd-plugin-highlight/scss/github-dark';
+@use '@tofrankie/bytemd-plugin-highlight/scss/github-dark-dimmed';
 ```
 
 ## License

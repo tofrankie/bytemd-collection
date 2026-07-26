@@ -90,9 +90,14 @@ body {
 
 .mode-switcher {
   display: inline-flex;
+  flex-wrap: nowrap;
   overflow: hidden;
   border: 1px solid #d0d7de;
-  border-radius: 6px;
+}
+
+.mode-switcher.is-wrap {
+  flex-wrap: wrap;
+  overflow: visible;
 }
 
 .mode-switcher button {

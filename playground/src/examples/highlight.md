@@ -1,7 +1,8 @@
 ## References
 
-- [highlight.js/github.css](https://github.com/highlightjs/highlight.js/blob/6317acd780bfe448f75393ea42d53c0149013274/src/styles/github.css)
-- [github-syntax-light/github-light.css](https://github.com/primer/github-syntax-light/blob/828ccb30b5a3a09b9b27bf52acaa90ac653d0fad/lib/github-light.css)
+- [highlight.js/github.css](https://github.com/highlightjs/highlight.js/blob/main/src/styles/github.css)
+- [github-syntax-light/github-light.css](https://github.com/primer/github-syntax-light/blob/master/lib/github-light.css)
+- [Code Block Highlight](https://github.com/tofrankie/blog-test/issues/10)
 
 ## Demo
 
