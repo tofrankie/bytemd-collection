@@ -1,5 +1,6 @@
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
 import { ROUTES } from './constants'
+import AllPluginsPage from './pages/all-plugins'
 import GfmPage from './pages/gfm'
 import GithubAlertsPage from './pages/github-alerts'
 import HighlightPage from './pages/highlight'
@@ -11,6 +12,7 @@ function AppShell() {
 }
 
 const exampleRouteElements = {
+  'all-plugins': <AllPluginsPage />,
   'github-alerts': <GithubAlertsPage />,
   gfm: <GfmPage />,
   highlight: <HighlightPage />,

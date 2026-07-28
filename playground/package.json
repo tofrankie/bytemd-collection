@@ -11,14 +11,20 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@bytemd/plugin-breaks": "^1.22.0",
+    "@bytemd/plugin-frontmatter": "^1.22.0",
+    "@bytemd/plugin-gemoji": "^1.22.0",
+    "@bytemd/plugin-math": "^1.22.0",
+    "@bytemd/plugin-medium-zoom": "^1.22.0",
     "@bytemd/react": "^1.22.0",
     "@tofrankie/bytemd-plugin-highlight": "workspace:*",
     "bytemd": "^1.22.0",
     "bytemd-plugin-gfm": "workspace:*",
     "bytemd-plugin-github-alerts": "workspace:*",
     "bytemd-plugin-mermaid": "workspace:*",
-    "github-markdown-css": "^5.9.0",
+    "bytemd-theme-github": "workspace:*",
     "highlight.js": "^11.11.1",
+    "katex": "^0.18.1",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "react-router-dom": "^7.18.1"

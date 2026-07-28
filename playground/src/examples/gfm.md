@@ -1,6 +1,6 @@
 ## GFM Extended Syntax
 
-Automatic URL Linking: https://github.com/bytedance/bytemd
+Automatic URL Linking: https://github.com/pd4d10/bytemd
 
 ~~The world is flat.~~ We now know that the world is round.
 

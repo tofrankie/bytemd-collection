@@ -1,0 +1,67 @@
+{
+  "name": "bytemd-theme-github",
+  "type": "module",
+  "version": "0.0.1",
+  "packageManager": "pnpm@10.33.4",
+  "description": "GitHub Flavored Markdown theme styles for bytemd",
+  "author": "Frankie <1426203851@qq.com>",
+  "license": "MIT",
+  "funding": [
+    {
+      "type": "paypal",
+      "url": "https://paypal.me/tofrankie"
+    },
+    {
+      "type": "ifdian",
+      "url": "https://ifdian.net/a/tofrankie"
+    }
+  ],
+  "homepage": "https://github.com/tofrankie/bytemd-collection/tree/main/packages/theme-github",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tofrankie/bytemd-collection.git",
+    "directory": "packages/theme-github"
+  },
+  "bugs": {
+    "url": "https://github.com/tofrankie/bytemd-collection/issues"
+  },
+  "keywords": [
+    "bytemd",
+    "theme",
+    "github",
+    "markdown",
+    "css"
+  ],
+  "sideEffects": [
+    "*.css",
+    "dist/*.css"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.mjs"
+    },
+    "./*.css": "./dist/*.css"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "style": "./dist/light.css",
+  "files": [
+    "CHANGELOG.md",
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "dev": "node ./scripts/watch-theme-styles.js",
+    "build": "node ./scripts/build-theme-styles.js",
+    "prepublishOnly": "pnpm run build",
+    "publint": "publint"
+  },
+  "devDependencies": {
+    "@tofrankie/github-markdown-css": "^0.0.1",
+    "sass": "^1.94.0"
+  }
+}

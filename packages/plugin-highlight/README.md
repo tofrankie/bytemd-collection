@@ -20,7 +20,7 @@ import '@tofrankie/bytemd-plugin-highlight/styles/github.css'
 const plugins = [highlight()]
 
 export default function App() {
-  const [value, setValue] = useState('```js\nconsole.log("Hello, ByteMD!")\n```')
+  const [value, setValue] = useState('```js\nconsole.log("Hello, bytemd!")\n```')
 
   return <Editor value={value} plugins={plugins} onChange={setValue} />
 }

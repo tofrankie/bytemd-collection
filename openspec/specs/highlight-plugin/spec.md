@@ -15,9 +15,9 @@
 - **WHEN** 消费者通过 ESM、CommonJS 或浏览器 UMD 入口加载该包
 - **THEN** 系统 MUST 提供同一个默认高亮插件工厂函数及其 TypeScript 类型
 
-#### Scenario: ByteMD 由应用提供
+#### Scenario: bytemd 由应用提供
 
-- **WHEN** 包被安装到使用 ByteMD 的应用中
+- **WHEN** 包被安装到使用 bytemd 的应用中
 - **THEN** 包 MUST 使用应用提供的兼容 `bytemd` peer dependency，而不是将 `bytemd` 打包进构建产物
 
 ### Requirement: Viewer 代码块按需高亮
@@ -50,7 +50,7 @@
 
 ### Requirement: 主题样式由应用选择
 
-插件 SHALL 不自动导入或注入 `highlight.js` 的 CSS 主题。README MUST 展示应用导入 `highlight.js` 主题样式并将插件加入 ByteMD `plugins` 的使用方式。
+插件 SHALL 不自动导入或注入 `highlight.js` 的 CSS 主题。README MUST 展示应用导入 `highlight.js` 主题样式并将插件加入 bytemd `plugins` 的使用方式。
 
 #### Scenario: 应用选择高亮主题
 

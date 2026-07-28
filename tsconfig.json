@@ -1,5 +1,6 @@
 {
   "references": [
+    { "path": "./packages/bytemd/tsconfig.json" },
     { "path": "./packages/plugin-gfm/tsconfig.json" },
     { "path": "./packages/plugin-github-alerts/tsconfig.json" },
     { "path": "./packages/plugin-highlight/tsconfig.json" },

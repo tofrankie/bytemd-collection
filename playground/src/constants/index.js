@@ -1,5 +1,11 @@
 export const ROUTES = [
   {
+    id: 'all-plugins',
+    path: '/all-plugins',
+    title: 'All Plugins',
+    description: '完整 bytemd 插件组合测试示例',
+  },
+  {
     id: 'github-alerts',
     path: '/github-alerts',
     title: 'GitHub Alerts',
