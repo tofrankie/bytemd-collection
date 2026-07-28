@@ -4,7 +4,7 @@
 
 ## Requirements
 
-### Requirement: Mermaid version upgrade
+### Requirement: Mermaid 版本升级
 
 `bytemd-plugin-mermaid` 插件 SHALL 升级到目标 Mermaid 新版本，并 SHALL 保持对 Mermaid 原生配置的直接透传。
 
@@ -18,7 +18,7 @@
 - **WHEN** 插件未传入额外 Mermaid 配置
 - **THEN** 插件 SHALL 仍然能够成功渲染 Mermaid 图表
 
-### Requirement: No extra color mode wrapper
+### Requirement: 不新增额外的颜色模式封装
 
 插件 SHALL NOT 新增 `colorMode` 等与 Mermaid 原生 `theme` 配置重复的主题包装参数。
 
@@ -27,7 +27,7 @@
 - **WHEN** 使用方需要深色主题
 - **THEN** 使用方 SHALL 通过 Mermaid 原生 `theme: 'dark'` 配置完成
 
-### Requirement: Mermaid render result compatibility
+### Requirement: Mermaid 渲染结果兼容性
 
 插件 SHALL 兼容升级后 Mermaid `render()` 返回的 SVG 与绑定函数结果。
 

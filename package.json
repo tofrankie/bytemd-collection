@@ -6,7 +6,7 @@
   "packageManager": "pnpm@10.33.4",
   "author": "Frankie <1426203851@qq.com>",
   "license": "MIT",
-  "homepage": "https://github.com/tofrankie/bytemd-plugin",
+  "homepage": "https://github.com/tofrankie/bytemd-collection",
   "keywords": [
     "bytemd",
     "plugin"

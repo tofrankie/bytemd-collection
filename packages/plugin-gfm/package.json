@@ -1,9 +1,9 @@
 {
-  "name": "@tofrankie/bytemd-plugin-highlight",
+  "name": "bytemd-plugin-gfm",
   "type": "module",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "packageManager": "pnpm@10.33.4",
-  "description": "A bytemd plugin for syntax highlighting with bundled theme styles",
+  "description": "A bytemd plugin for GitHub Flavored Markdown",
   "author": "Frankie <1426203851@qq.com>",
   "license": "MIT",
   "funding": [
@@ -16,11 +16,11 @@
       "url": "https://ifdian.net/a/tofrankie"
     }
   ],
-  "homepage": "https://github.com/tofrankie/bytemd-collection/tree/main/packages/highlight",
+  "homepage": "https://github.com/tofrankie/bytemd-collection/tree/main/packages/plugin-gfm",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tofrankie/bytemd-collection.git",
-    "directory": "packages/highlight"
+    "directory": "packages/plugin-gfm"
   },
   "bugs": {
     "url": "https://github.com/tofrankie/bytemd-collection/issues"
@@ -28,9 +28,9 @@
   "keywords": [
     "bytemd",
     "plugin",
-    "highlight",
-    "highlight.js",
-    "syntax"
+    "gfm",
+    "github-flavored-markdown",
+    "markdown"
   ],
   "exports": {
     ".": {
@@ -38,8 +38,8 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
     },
-    "./styles/*": "./styles/*",
-    "./scss/*": "./scss/*"
+    "./locales/*": "./locales/*",
+    "./lib/locales/*": "./locales/*"
   },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -49,17 +49,11 @@
   "files": [
     "CHANGELOG.md",
     "dist",
-    "scss",
-    "styles"
+    "locales"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
     "dev": "tsdown --watch",
-    "build": "run-s copy:styles build:bundle",
-    "build:bundle": "tsdown",
-    "copy:styles": "node ./scripts/copy-highlight-styles.js",
+    "build": "tsdown",
     "prepublishOnly": "run-s typecheck build",
     "typecheck": "tsc --noEmit",
     "publint": "publint"
@@ -68,7 +62,7 @@
     "bytemd": "^1.5.0"
   },
   "dependencies": {
-    "highlight.js": "^11.11.1"
+    "remark-gfm": "^3.0.1"
   },
   "devDependencies": {
     "bytemd": "^1.22.0"

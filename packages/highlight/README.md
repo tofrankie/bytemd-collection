@@ -1,8 +1,8 @@
 # @tofrankie/bytemd-plugin-highlight
 
-[![npm version](https://img.shields.io/npm/v/@tofrankie/bytemd-plugin-highlight)](https://www.npmjs.com/package/@tofrankie/bytemd-plugin-highlight) [![npm package license](https://img.shields.io/npm/l/@tofrankie/bytemd-plugin-highlight)](https://github.com/tofrankie/bytemd-plugin/blob/main/packages/highlight/LICENSE) [![npm last update](https://img.shields.io/npm/last-update/bytemd-plugin-mermaid)](https://www.npmjs.com/package/@tofrankie/bytemd-plugin-highlight)
+[![npm version](https://img.shields.io/npm/v/@tofrankie/bytemd-plugin-highlight)](https://www.npmjs.com/package/@tofrankie/bytemd-plugin-highlight) [![npm package license](https://img.shields.io/npm/l/@tofrankie/bytemd-plugin-highlight)](https://github.com/tofrankie/bytemd-collection/blob/main/packages/highlight/LICENSE) [![npm last update](https://img.shields.io/npm/last-update/@tofrankie/bytemd-plugin-highlight)](https://www.npmjs.com/package/@tofrankie/bytemd-plugin-highlight)
 
-ByteMD plugin for highlighting code blocks with [highlight.js](https://highlightjs.org/).
+A bytemd plugin for syntax highlighting, plus bundled [highlight.js](https://highlightjs.org/) theme styles.
 
 ## Usage
 
@@ -42,7 +42,7 @@ const plugins = [
 
 ## Bundled Styles
 
-This package republishes a small subset of `highlight.js` themes so you can import them directly from the plugin package.
+This package republishes a small set of `highlight.js` themes so you can import them directly from the plugin package.
 
 ```js
 import '@tofrankie/bytemd-plugin-highlight/styles/default.css'
@@ -61,6 +61,10 @@ SCSS sources are also available:
 @use '@tofrankie/bytemd-plugin-highlight/scss/github-dark';
 @use '@tofrankie/bytemd-plugin-highlight/scss/github-dark-dimmed';
 ```
+
+## Credits
+
+Based on [@bytemd/plugin-highlight](https://github.com/pd4d10/bytemd/tree/main/packages/plugin-highlight) ❤️
 
 ## License
 

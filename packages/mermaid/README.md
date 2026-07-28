@@ -1,8 +1,8 @@
 # bytemd-plugin-mermaid
 
-[![npm version](https://img.shields.io/npm/v/bytemd-plugin-mermaid)](https://www.npmjs.com/package/bytemd-plugin-mermaid) [![npm package license](https://img.shields.io/npm/l/bytemd-plugin-mermaid)](https://github.com/tofrankie/bytemd-plugin/blob/main/packages/mermaid/LICENSE) [![npm last update](https://img.shields.io/npm/last-update/bytemd-plugin-mermaid)](https://www.npmjs.com/package/bytemd-plugin-mermaid)
+[![npm version](https://img.shields.io/npm/v/bytemd-plugin-mermaid)](https://www.npmjs.com/package/bytemd-plugin-mermaid) [![npm package license](https://img.shields.io/npm/l/bytemd-plugin-mermaid)](https://github.com/tofrankie/bytemd-collection/blob/main/packages/mermaid/LICENSE) [![npm last update](https://img.shields.io/npm/last-update/bytemd-plugin-mermaid)](https://www.npmjs.com/package/bytemd-plugin-mermaid)
 
-A bytemd plugin that supports [Mermaid](https://mermaid.ai/open-source/syntax/examples.html) diagram.
+A bytemd plugin for rendering [Mermaid](https://mermaid.ai/open-source/syntax/examples.html) diagrams.
 
 ## Usage
 
@@ -32,7 +32,7 @@ export default function App() {
 
 ## Credits
 
-Forked from [@bytemd/plugin-mermaid](https://github.com/pd4d10/bytemd/tree/main/packages/plugin-mermaid) ❤️
+Based on [@bytemd/plugin-mermaid](https://github.com/pd4d10/bytemd/tree/main/packages/plugin-mermaid) ❤️
 
 ## License
 

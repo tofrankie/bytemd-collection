@@ -4,7 +4,7 @@ import defaultStyleUrl from '@tofrankie/bytemd-plugin-highlight/styles/default.c
 import githubDarkDimmedStyleUrl from '@tofrankie/bytemd-plugin-highlight/styles/github-dark-dimmed.css?url'
 import githubDarkStyleUrl from '@tofrankie/bytemd-plugin-highlight/styles/github-dark.css?url'
 import githubStyleUrl from '@tofrankie/bytemd-plugin-highlight/styles/github.css?url'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import ExampleEditor from '../components/example-editor'
 import ExampleLayout from '../components/example-layout'
 
@@ -20,6 +20,7 @@ const themes = [
 
 export default function HighlightPage() {
   const [theme, setTheme] = useState('github')
+  const plugins = useMemo(() => [highlight()], [])
 
   useEffect(() => {
     const currentTheme = themes.find(item => item.value === theme)
@@ -64,7 +65,7 @@ export default function HighlightPage() {
         </div>
       }
     >
-      <ExampleEditor initialValue={highlightMarkdown} plugins={[highlight()]} />
+      <ExampleEditor initialValue={highlightMarkdown} plugins={plugins} />
     </ExampleLayout>
   )
 }

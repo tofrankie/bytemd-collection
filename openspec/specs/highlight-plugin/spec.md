@@ -1,8 +1,8 @@
-# highlight-plugin Specification
+# 高亮插件规范
 
 ## Purpose
 
-TBD - created by archiving change add-highlight-plugin. Update Purpose after archive.
+提供一个可发布的 bytemd 高亮插件，并定义其依赖、高亮行为、初始化能力与主题样式边界。
 
 ## Requirements
 

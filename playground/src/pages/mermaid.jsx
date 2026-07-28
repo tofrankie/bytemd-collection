@@ -3,18 +3,7 @@ import { useState } from 'react'
 import ExampleEditor from '../components/example-editor'
 import ExampleLayout from '../components/example-layout'
 
-const mermaidMarkdown = `
-## Mermaid Theme
-
-切换下方主题后，编辑器会重新初始化 \`bytemd-plugin-mermaid\`，用于观察 Mermaid 原生主题差异。
-
-\`\`\`mermaid
-flowchart TD
-  A[Mermaid Theme] --> B{dark?}
-  B -->|yes| C[Mermaid Dark Theme]
-  B -->|no| D[Mermaid Default Theme]
-\`\`\`
-`
+import mermaidMarkdown from '../examples/mermaid.md?raw'
 
 export default function MermaidPage() {
   const [theme, setTheme] = useState('default')

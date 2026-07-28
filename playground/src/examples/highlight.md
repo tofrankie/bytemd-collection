@@ -102,8 +102,8 @@ export default hljs
 ```
 
 ```js
-import gfm from '@bytemd/plugin-gfm'
 import { Editor, Viewer } from 'bytemd'
+import gfm from 'bytemd-plugin-gfm'
 
 const plugins = [
   gfm(),

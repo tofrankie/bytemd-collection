@@ -3,14 +3,27 @@
   "type": "module",
   "version": "0.0.2",
   "packageManager": "pnpm@10.33.4",
-  "description": "ByteMD plugin to support Mermaid diagram",
+  "description": "A bytemd plugin for rendering Mermaid diagrams",
   "author": "Frankie <1426203851@qq.com>",
   "license": "MIT",
-  "homepage": "https://github.com/tofrankie/bytemd-plugin/tree/main/packages/mermaid",
+  "funding": [
+    {
+      "type": "paypal",
+      "url": "https://paypal.me/tofrankie"
+    },
+    {
+      "type": "ifdian",
+      "url": "https://ifdian.net/a/tofrankie"
+    }
+  ],
+  "homepage": "https://github.com/tofrankie/bytemd-collection/tree/main/packages/mermaid",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tofrankie/bytemd-plugin.git",
+    "url": "git+https://github.com/tofrankie/bytemd-collection.git",
     "directory": "packages/mermaid"
+  },
+  "bugs": {
+    "url": "https://github.com/tofrankie/bytemd-collection/issues"
   },
   "keywords": [
     "bytemd",
