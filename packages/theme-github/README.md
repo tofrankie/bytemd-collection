@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/bytemd-theme-github)](https://www.npmjs.com/package/bytemd-theme-github) [![npm package license](https://img.shields.io/npm/l/bytemd-theme-github)](https://github.com/tofrankie/bytemd-collection/blob/main/packages/theme-github/LICENSE) [![npm last update](https://img.shields.io/npm/last-update/bytemd-theme-github)](https://www.npmjs.com/package/bytemd-theme-github)
 
-GitHub Flavored Markdown theme styles for bytemd, based on `@tofrankie/github-markdown-css` with a bytemd patch layer.
+GitHub Flavored Markdown theme styles for bytemd, based on [`@tofrankie/github-markdown-css`](https://github.com/tofrankie/github-markdown-css) with a bytemd patch layer.
 
 ## Usage
 
@@ -14,7 +14,7 @@ pnpm add bytemd-theme-github
 import 'bytemd-theme-github'
 ```
 
-Use `bytemd-theme-github` together with `bytemd-plugin-gfm` when you want GitHub-style tables, task lists, footnotes, and other GFM presentation details.
+Use `bytemd-theme-github` together with [`bytemd-plugin-gfm`](https://github.com/tofrankie/bytemd-collection/tree/main/packages/plugin-gfm) when you want GitHub-style tables, task lists, footnotes, and other GFM presentation details.
 
 ## Themes
 
@@ -69,7 +69,7 @@ import 'bytemd-theme-github/auto-tritanopia-high-contrast.css'
 
 ## Credits
 
-Built on top of [@tofrankie/github-markdown-css](https://www.npmjs.com/package/@tofrankie/github-markdown-css) ❤️
+Built on top of [@tofrankie/github-markdown-css](https://github.com/tofrankie/github-markdown-css) ❤️
 
 ## License
 
