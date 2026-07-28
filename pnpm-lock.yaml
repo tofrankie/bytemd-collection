@@ -178,8 +178,8 @@ importers:
   packages/theme-github:
     devDependencies:
       '@tofrankie/github-markdown-css':
-        specifier: ^0.0.1
-        version: 0.0.1
+        specifier: ^0.0.2
+        version: 0.0.2
       sass:
         specifier: ^1.94.0
         version: 1.102.0
@@ -1772,8 +1772,8 @@ packages:
     peerDependencies:
       eslint: ^10.2.1
 
-  '@tofrankie/github-markdown-css@0.0.1':
-    resolution: {integrity: sha512-U58ZO1jQv0g2G8ukOtlT7GQc1f4jdjEbD0gq8b2Lb+lgRLeHhft+BxP9zmUFmWp5rcamPMpkgkMWtOiinHyHhQ==}
+  '@tofrankie/github-markdown-css@0.0.2':
+    resolution: {integrity: sha512-2ypdq6Sdh/YlVJ2rYupYEt5IEqx/GUP9vGsv2hTLs86h354FL8JW6glTYIo0Tgy4RNXxeM/7CnRImgdWDbVTZQ==}
 
   '@tofrankie/prettier-plugin-wxml@0.0.11':
     resolution: {integrity: sha512-De58fa9+vLZf3jodA8tOzZ9+BHBdCH3mK477IDtyLyARjrVj4AVDpNkduG1J5UjMSvKIeHzt4rWMdUULIJ5+bQ==}
@@ -7500,7 +7500,7 @@ snapshots:
       - typescript
       - vitest
 
-  '@tofrankie/github-markdown-css@0.0.1': {}
+  '@tofrankie/github-markdown-css@0.0.2': {}
 
   '@tofrankie/prettier-plugin-wxml@0.0.11(prettier@3.9.6)':
     dependencies:
