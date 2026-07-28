@@ -36,5 +36,5 @@ coverage/
 *.vsix
 
 # @tofrankie/bytemd-plugin-highlight
-packages/highlight/scss/
-packages/highlight/styles/
+packages/plugin-highlight/scss/
+packages/plugin-highlight/styles/

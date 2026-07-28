@@ -1,0 +1,8 @@
+{
+  "extends": "@tofrankie/tsconfig/react.app.json",
+  "compilerOptions": {
+    "emitDeclarationOnly": false,
+    "noEmit": true
+  },
+  "include": ["src"]
+}

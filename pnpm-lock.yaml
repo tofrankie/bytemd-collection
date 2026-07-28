@@ -48,13 +48,23 @@ importers:
         specifier: ^4.1.10
         version: 4.1.10(@types/node@26.1.1)(vite@8.0.14(@types/node@26.1.1)(jiti@2.7.0)(yaml@2.9.0))
 
-  packages/github-alerts:
+  packages/plugin-gfm:
+    dependencies:
+      remark-gfm:
+        specifier: ^3.0.1
+        version: 3.0.1
     devDependencies:
       bytemd:
         specifier: ^1.22.0
         version: 1.22.0
 
-  packages/highlight:
+  packages/plugin-github-alerts:
+    devDependencies:
+      bytemd:
+        specifier: ^1.22.0
+        version: 1.22.0
+
+  packages/plugin-highlight:
     dependencies:
       highlight.js:
         specifier: ^11.11.1
@@ -64,21 +74,11 @@ importers:
         specifier: ^1.22.0
         version: 1.22.0
 
-  packages/mermaid:
+  packages/plugin-mermaid:
     dependencies:
       mermaid:
         specifier: ^11.16.0
         version: 11.16.0
-    devDependencies:
-      bytemd:
-        specifier: ^1.22.0
-        version: 1.22.0
-
-  packages/plugin-gfm:
-    dependencies:
-      remark-gfm:
-        specifier: ^3.0.1
-        version: 3.0.1
     devDependencies:
       bytemd:
         specifier: ^1.22.0
@@ -91,7 +91,7 @@ importers:
         version: 1.22.0(react@19.2.6)
       '@tofrankie/bytemd-plugin-highlight':
         specifier: workspace:*
-        version: link:../packages/highlight
+        version: link:../packages/plugin-highlight
       bytemd:
         specifier: ^1.22.0
         version: 1.22.0
@@ -100,10 +100,10 @@ importers:
         version: link:../packages/plugin-gfm
       bytemd-plugin-github-alerts:
         specifier: workspace:*
-        version: link:../packages/github-alerts
+        version: link:../packages/plugin-github-alerts
       bytemd-plugin-mermaid:
         specifier: workspace:*
-        version: link:../packages/mermaid
+        version: link:../packages/plugin-mermaid
       github-markdown-css:
         specifier: ^5.9.0
         version: 5.9.0

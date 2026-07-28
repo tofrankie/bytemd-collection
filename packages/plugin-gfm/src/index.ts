@@ -1,6 +1,6 @@
 import type { BytemdPlugin } from 'bytemd'
-import * as remarkGfmModule from 'remark-gfm'
 import type { Options } from 'remark-gfm'
+import * as remarkGfmModule from 'remark-gfm'
 import { icons } from './icons'
 import en from './locales/en.json'
 

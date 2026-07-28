@@ -1,6 +1,6 @@
 # @tofrankie/bytemd-plugin-highlight
 
-[![npm version](https://img.shields.io/npm/v/@tofrankie/bytemd-plugin-highlight)](https://www.npmjs.com/package/@tofrankie/bytemd-plugin-highlight) [![npm package license](https://img.shields.io/npm/l/@tofrankie/bytemd-plugin-highlight)](https://github.com/tofrankie/bytemd-collection/blob/main/packages/highlight/LICENSE) [![npm last update](https://img.shields.io/npm/last-update/@tofrankie/bytemd-plugin-highlight)](https://www.npmjs.com/package/@tofrankie/bytemd-plugin-highlight)
+[![npm version](https://img.shields.io/npm/v/@tofrankie/bytemd-plugin-highlight)](https://www.npmjs.com/package/@tofrankie/bytemd-plugin-highlight) [![npm package license](https://img.shields.io/npm/l/@tofrankie/bytemd-plugin-highlight)](https://github.com/tofrankie/bytemd-collection/blob/main/packages/plugin-highlight/LICENSE) [![npm last update](https://img.shields.io/npm/last-update/@tofrankie/bytemd-plugin-highlight)](https://www.npmjs.com/package/@tofrankie/bytemd-plugin-highlight)
 
 A bytemd plugin for syntax highlighting, plus bundled [highlight.js](https://highlightjs.org/) theme styles.
 

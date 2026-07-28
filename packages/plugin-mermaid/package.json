@@ -16,11 +16,11 @@
       "url": "https://ifdian.net/a/tofrankie"
     }
   ],
-  "homepage": "https://github.com/tofrankie/bytemd-collection/tree/main/packages/mermaid",
+  "homepage": "https://github.com/tofrankie/bytemd-collection/tree/main/packages/plugin-mermaid",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tofrankie/bytemd-collection.git",
-    "directory": "packages/mermaid"
+    "directory": "packages/plugin-mermaid"
   },
   "bugs": {
     "url": "https://github.com/tofrankie/bytemd-collection/issues"

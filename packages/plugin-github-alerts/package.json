@@ -16,11 +16,11 @@
       "url": "https://ifdian.net/a/tofrankie"
     }
   ],
-  "homepage": "https://github.com/tofrankie/bytemd-collection/tree/main/packages/github-alerts",
+  "homepage": "https://github.com/tofrankie/bytemd-collection/tree/main/packages/plugin-github-alerts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tofrankie/bytemd-collection.git",
-    "directory": "packages/github-alerts"
+    "directory": "packages/plugin-github-alerts"
   },
   "bugs": {
     "url": "https://github.com/tofrankie/bytemd-collection/issues"
