@@ -1,5 +1,11 @@
 # Change log
 
+## bytemd-plugin-highlight@0.0.5
+
+> 2026-07-30
+
+- Update token color
+
 ## bytemd-plugin-highlight@0.0.4
 
 > 2026-07-30
