@@ -42,7 +42,11 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
     },
-    "./styles/*": "./dist/styles/*"
+    "./styles/*.css": {
+      "style": "./dist/styles/*.css",
+      "import": "./dist/styles/*.css",
+      "default": "./dist/styles/*.css"
+    }
   },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",

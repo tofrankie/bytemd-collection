@@ -9,16 +9,22 @@
 .hljs-meta .hljs-keyword,
 .hljs-template-tag,
 .hljs-template-variable,
-.hljs-type,
-.hljs-variable.language_ {
+.hljs-type {
   color: var(--prettylights-syntax-keyword);
 }
 
+.hljs-variable.language_ {
+  color: var(--prettylights-syntax-storage-modifier-import);
+}
+
 .hljs-title,
-.hljs-title.class_,
-.hljs-title.class_.inherited__,
 .hljs-title.function_ {
   color: var(--prettylights-syntax-entity);
+}
+
+.hljs-title.class_,
+.hljs-title.class_.inherited__ {
+  color: var(--prettylights-syntax-variable);
 }
 
 .hljs-attr,
@@ -34,6 +40,10 @@
   color: var(--prettylights-syntax-constant);
 }
 
+.hljs-literal .hljs-keyword {
+  color: var(--prettylights-syntax-constant);
+}
+
 .hljs-regexp,
 .hljs-string,
 .hljs-meta .hljs-string {
@@ -42,7 +52,7 @@
 
 .hljs-built_in,
 .hljs-symbol {
-  color: var(--prettylights-syntax-variable);
+  color: var(--prettylights-syntax-storage-modifier-import);
 }
 
 .hljs-comment,
@@ -59,7 +69,7 @@
 }
 
 .hljs-subst {
-  color: var(--prettylights-syntax-storage-modifier-import);
+  color: var(--prettylights-syntax-string);
 }
 
 .hljs-section {
@@ -93,9 +103,12 @@
 
 .hljs-char.escape_,
 .hljs-link,
-.hljs-params,
 .hljs-property,
 .hljs-punctuation,
 .hljs-tag {
+  color: var(--prettylights-syntax-constant);
+}
+
+.hljs-params {
   /* purposely ignored */
 }
