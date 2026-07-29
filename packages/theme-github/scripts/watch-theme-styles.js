@@ -46,7 +46,9 @@ async function runBuild() {
 
   try {
     await buildThemeStyles()
-    console.log(`[bytemd-theme-github] rebuilt at ${new Date().toLocaleTimeString('en-US', { hour12: false })}`)
+    console.log(
+      `[bytemd-theme-github] rebuilt at ${new Date().toLocaleTimeString('en-US', { hour12: false })}`
+    )
   } catch (error) {
     console.error('[bytemd-theme-github] rebuild failed')
     console.error(error)

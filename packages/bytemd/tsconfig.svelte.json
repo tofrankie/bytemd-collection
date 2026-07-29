@@ -1,0 +1,10 @@
+// for svelte entry
+{
+  "extends": "@tofrankie/tsconfig/node.lib.json",
+  "compilerOptions": {
+    "composite": false,
+    "emitDeclarationOnly": false,
+    "outDir": "svelte"
+  },
+  "include": ["src"]
+}

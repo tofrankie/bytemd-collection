@@ -1,0 +1,411 @@
+@import 'tippy.js/dist/tippy.css';
+@import 'tippy.js/themes/light-border.css';
+@import '@primer/css/support/variables/color-system.scss';
+
+$border-color: $gray-200;
+$primary: $blue;
+$sidebar-width: 280px;
+$max-width: 800px;
+
+.bytemd {
+  // reset
+  box-sizing: border-box;
+  * {
+    box-sizing: border-box;
+  }
+  &-hidden {
+    display: none !important;
+  }
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Helvetica,
+    Arial,
+    sans-serif,
+    Apple Color Emoji,
+    Segoe UI Emoji;
+  color: $gray-900;
+  border: 1px solid $border-color;
+  background-color: $white;
+  height: 300px;
+
+  .cm-editor,
+  code,
+  kbd {
+    font-family:
+      SFMono-Regular,
+      Consolas,
+      Liberation Mono,
+      Menlo,
+      monospace;
+  }
+
+  &-toolbar {
+    padding: 4px 12px;
+    border-bottom: 1px solid $border-color;
+    background-color: $gray-000;
+    user-select: none;
+    overflow: hidden;
+
+    button {
+      appearance: none;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      font: inherit;
+      margin: 0;
+    }
+
+    &-left {
+      float: left;
+    }
+
+    &-right {
+      float: right;
+    }
+
+    &-tab {
+      display: inline-block;
+      cursor: pointer;
+      padding-left: 8px;
+      padding-right: 8px;
+      line-height: 24px;
+      font-size: 14px;
+      &-active {
+        color: $primary;
+      }
+    }
+
+    &-icon {
+      display: inline-block;
+      vertical-align: top;
+      cursor: pointer;
+      border-radius: 4px;
+      margin-left: 6px;
+      margin-right: 6px;
+      svg,
+      img {
+        display: block;
+        padding: 4px;
+        width: 24px;
+        height: 24px;
+      }
+      &:hover {
+        background-color: $border-color;
+      }
+      &-active {
+        color: $blue-500;
+      }
+    }
+
+    .tippy-content {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  &-dropdown {
+    max-height: 300px;
+    overflow: auto;
+    font-size: 14px;
+    &-title {
+      margin: 0 12px;
+      font-weight: 500;
+      border-bottom: 1px solid $border-color;
+      line-height: 32px;
+      color: $gray-700;
+    }
+    &-item {
+      padding: 4px 12px;
+      height: 32px;
+      cursor: pointer;
+      &:hover {
+        background-color: $gray-100;
+      }
+
+      &-icon {
+        display: inline-block;
+        svg {
+          display: block;
+          padding: 4px;
+          width: 24px;
+          height: 24px;
+        }
+      }
+      &-title {
+        display: inline-block;
+        line-height: 24px;
+        vertical-align: top;
+      }
+    }
+  }
+
+  &-body {
+    height: calc(100% - 33px - 25px);
+    overflow: auto;
+  }
+
+  &-editor {
+    display: inline-block;
+    vertical-align: top;
+    height: 100%;
+    overflow: hidden;
+    .cm-editor {
+      height: 100%;
+      font-size: 14px;
+      line-height: 1.5;
+      background: transparent;
+      &.cm-focused {
+        outline: none;
+      }
+      .cm-scroller {
+        overflow: auto;
+      }
+      .cm-placeholder {
+        color: $gray-400;
+      }
+      .cm-content {
+        max-width: $max-width;
+        margin: 0 auto;
+        min-height: 100%;
+        padding: 16px 4%;
+        caret-color: $gray-900;
+      }
+      .cm-line {
+        padding: 0;
+      }
+    }
+  }
+
+  &-preview {
+    display: inline-block;
+    vertical-align: top;
+    height: 100%;
+    overflow: auto;
+    .markdown-body {
+      max-width: $max-width;
+      margin: 0 auto;
+      padding: 16px 4%;
+    }
+  }
+
+  &-sidebar {
+    display: inline-block;
+    vertical-align: top; // Safari
+    height: 100%;
+    overflow: auto;
+    font-size: 16px;
+    border-left: 1px solid $border-color;
+    width: $sidebar-width;
+    position: relative;
+    padding: 0 16px;
+    &-close {
+      position: absolute;
+      padding: 16px;
+      top: 0;
+      right: 0;
+      cursor: pointer;
+      &:hover {
+        color: $primary;
+      }
+    }
+    h2 {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 32px 0 16px;
+    }
+    ul {
+      padding-left: 0;
+      color: $gray-400;
+    }
+  }
+
+  &-help {
+    font-size: 13px;
+    ul {
+      line-height: 20px;
+      svg {
+        width: 16px;
+        height: 16px;
+        display: block;
+      }
+      div {
+        display: inline-block;
+        vertical-align: top;
+      }
+    }
+    li {
+      list-style: none;
+      margin-bottom: 12px;
+    }
+    &-icon {
+      padding: 2px 0;
+    }
+    &-title {
+      padding-left: 8px;
+    }
+    &-content {
+      float: right;
+      font-size: 12px;
+    }
+  }
+
+  &-toc {
+    li {
+      list-style: none;
+      margin-bottom: 4px;
+    }
+    button {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      font: inherit;
+      font-size: 14px;
+      line-height: 2;
+      cursor: pointer;
+      text-align: left;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    &-active {
+      color: $primary;
+      background-color: $gray-100;
+    }
+    &-first {
+      font-weight: 500;
+    }
+  }
+
+  &-status {
+    font-size: 12px;
+    line-height: 24px;
+    border-top: 1px solid $border-color;
+    user-select: none;
+    &-left {
+      float: left;
+      span {
+        padding-left: 16px;
+      }
+      strong {
+        font-weight: 600;
+      }
+    }
+    &-right {
+      float: right;
+      label,
+      button {
+        margin-right: 16px;
+        cursor: pointer;
+      }
+      button:hover {
+        color: $primary;
+      }
+      button {
+        border: 0;
+        background: transparent;
+        color: inherit;
+        font: inherit;
+        padding: 0;
+      }
+      input {
+        vertical-align: middle;
+        margin-right: 3px; // CSS reset
+      }
+    }
+    &-error {
+      color: $red-500;
+    }
+  }
+
+  &-fullscreen {
+    &.bytemd {
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      border: none;
+      height: 100vh !important; // override user set height
+    }
+  }
+
+  &-split {
+    .bytemd-preview {
+      border-left: 1px solid $border-color;
+    }
+  }
+
+  &-dark {
+    color: $gray-000;
+    background-color: $gray-900;
+    border-color: $gray-600;
+
+    .bytemd-toolbar {
+      background-color: $gray-800;
+      border-bottom-color: $gray-600;
+
+      &-icon:hover {
+        background-color: $gray-700;
+      }
+    }
+
+    .bytemd-dropdown {
+      &-title {
+        border-bottom-color: $gray-600;
+        color: $gray-300;
+      }
+
+      &-item:hover {
+        background-color: $gray-700;
+      }
+    }
+
+    .bytemd-editor {
+      .cm-editor {
+        color: $gray-000;
+      }
+
+      .cm-content {
+        caret-color: $white;
+      }
+    }
+
+    .bytemd-preview,
+    .bytemd-sidebar,
+    .bytemd-status {
+      background-color: $gray-900;
+    }
+
+    .bytemd-sidebar {
+      border-left-color: $gray-600;
+    }
+
+    .bytemd-status {
+      border-top-color: $gray-600;
+    }
+
+    &.bytemd-split {
+      .bytemd-preview {
+        border-left-color: $gray-600;
+      }
+    }
+  }
+}
+
+.tippy-box {
+  font-size: 12px;
+}
+
+.tippy-box[data-theme~='bytemd-dark'] {
+  color: $gray-000;
+  background-color: $gray-800;
+  border: 1px solid $gray-600;
+
+  .tippy-content {
+    color: inherit;
+  }
+}

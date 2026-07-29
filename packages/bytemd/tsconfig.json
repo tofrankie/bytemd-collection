@@ -1,0 +1,10 @@
+{
+  "extends": "@tofrankie/tsconfig/node.lib.json",
+  "compilerOptions": {
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "types": ["vitest/globals"],
+    "emitDeclarationOnly": false,
+    "noEmit": true
+  },
+  "include": ["src", "test", "vitest.config.ts", "tsdown.config.ts", "scripts"]
+}

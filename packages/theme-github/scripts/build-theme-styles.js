@@ -26,15 +26,9 @@ export async function buildThemeStyles() {
     })
   )
 
-  await writeFile(
-    path.join(distDir, 'index.mjs'),
-    "import './light.css'\n\nexport {}\n"
-  )
+  await writeFile(path.join(distDir, 'index.mjs'), "import './light.css'\n\nexport {}\n")
 
-  await writeFile(
-    path.join(distDir, 'index.cjs'),
-    "'use strict'\n\nrequire('./light.css')\n"
-  )
+  await writeFile(path.join(distDir, 'index.cjs'), "'use strict'\n\nrequire('./light.css')\n")
 }
 
 function getPackageRoot() {
