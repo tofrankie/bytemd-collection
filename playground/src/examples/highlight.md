@@ -168,11 +168,11 @@ editor.on('change', e => {
     "types": ["vitest/globals", "esbuild-extra/global"],
     "paths": {
       "redux": ["src/index.ts"], // @remap-prod-remove-line
-      "@internal/*": ["src/*"]
-    }
+      "@internal/*": ["src/*"],
+    },
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist"]
+  "exclude": ["node_modules", "dist"],
 }
 ```
 

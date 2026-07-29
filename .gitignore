@@ -35,6 +35,3 @@ coverage/
 *.tgz
 *.vsix
 
-# @tofrankie/bytemd-plugin-highlight
-packages/plugin-highlight/scss/
-packages/plugin-highlight/styles/

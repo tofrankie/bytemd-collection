@@ -18,6 +18,7 @@
 - `bytemd-core-package`: 定义 `@tofrankie/bytemd` 的发布身份、编辑器栈、Svelte 兼容升级边界、分发模型和内置主题能力。
 
 ### Modified Capabilities
+
 <!-- 无 -->
 
 ## Impact

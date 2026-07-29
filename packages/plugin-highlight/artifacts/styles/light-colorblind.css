@@ -1,0 +1,150 @@
+/* Generated from @primer/primitives@11.9.0 theme: light-colorblind.css */
+.hljs {
+  --bgColor-danger-muted: #fff1e5;
+  --fgColor-danger: #bc4c00;
+  --prettylights-syntax-bracketHighlighterAngle: #59636e;
+  --prettylights-syntax-bracketHighlighterUnmatched: #762c00;
+  --prettylights-syntax-carriageReturn-bg: #bc4c00;
+  --prettylights-syntax-carriageReturn-text: #f6f8fa;
+  --prettylights-syntax-comment: #59636e;
+  --prettylights-syntax-constant: #0550ae;
+  --prettylights-syntax-constantOtherReferenceLink: #0a3069;
+  --prettylights-syntax-entity: #6639ba;
+  --prettylights-syntax-entityTag: #0550ae;
+  --prettylights-syntax-keyword: #bc4c00;
+  --prettylights-syntax-markup-changed-bg: #ffd8b5;
+  --prettylights-syntax-markup-changed-text: #953800;
+  --prettylights-syntax-markup-deleted-bg: #fff1e5;
+  --prettylights-syntax-markup-deleted-text: #762c00;
+  --prettylights-syntax-markup-heading: #0550ae;
+  --prettylights-syntax-markup-ignored-bg: #0550ae;
+  --prettylights-syntax-markup-ignored-text: #d1d9e0;
+  --prettylights-syntax-markup-inserted-bg: #ddf4ff;
+  --prettylights-syntax-markup-inserted-text: #0550ae;
+  --prettylights-syntax-markup-list: #3b2300;
+  --prettylights-syntax-metaDiffRange: #8250df;
+  --prettylights-syntax-string: #0a3069;
+  --prettylights-syntax-stringRegexp: #0550ae;
+  --prettylights-syntax-sublimeLinterGutterMark: #818b98;
+  --prettylights-syntax-variable: #953800;
+  --fgColor-default: #1f2328;
+  --prettylights-syntax-brackethighlighter-angle: var(--prettylights-syntax-bracketHighlighterAngle);
+  --prettylights-syntax-brackethighlighter-unmatched: var(--prettylights-syntax-bracketHighlighterUnmatched);
+  --prettylights-syntax-carriage-return-bg: var(--prettylights-syntax-carriageReturn-bg);
+  --prettylights-syntax-carriage-return-text: var(--prettylights-syntax-carriageReturn-text);
+  --prettylights-syntax-constant-other-reference-link: var(--prettylights-syntax-constantOtherReferenceLink);
+  --prettylights-syntax-entity-tag: var(--prettylights-syntax-entityTag);
+  --prettylights-syntax-invalidIllegal-bg: var(--bgColor-danger-muted);
+  --prettylights-syntax-invalidIllegal-text: var(--fgColor-danger);
+  --prettylights-syntax-markup-bold: #1f2328;
+  --prettylights-syntax-markup-italic: #1f2328;
+  --prettylights-syntax-meta-diff-range: var(--prettylights-syntax-metaDiffRange);
+  --prettylights-syntax-storageModifierImport: #1f2328;
+  --prettylights-syntax-string-regexp: var(--prettylights-syntax-stringRegexp);
+  --prettylights-syntax-sublimelinter-gutter-mark: var(--prettylights-syntax-sublimeLinterGutterMark);
+  --prettylights-syntax-invalid-illegal-bg: var(--prettylights-syntax-invalidIllegal-bg);
+  --prettylights-syntax-invalid-illegal-text: var(--prettylights-syntax-invalidIllegal-text);
+  --prettylights-syntax-storage-modifier-import: var(--prettylights-syntax-storageModifierImport);
+}
+
+/* Base on https://github.com/highlightjs/highlight.js/blob/3a8314f11042e80e0c2775e97c65cc2b8c0be646/src/styles/github.css */
+.hljs {
+  color: var(--fgColor-default);
+  background: #fff;
+}
+
+.hljs-doctag,
+.hljs-keyword,
+.hljs-meta .hljs-keyword,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-type,
+.hljs-variable.language_ {
+  color: var(--prettylights-syntax-keyword);
+}
+
+.hljs-title,
+.hljs-title.class_,
+.hljs-title.class_.inherited__,
+.hljs-title.function_ {
+  color: var(--prettylights-syntax-entity);
+}
+
+.hljs-attr,
+.hljs-attribute,
+.hljs-literal,
+.hljs-meta,
+.hljs-number,
+.hljs-operator,
+.hljs-variable,
+.hljs-selector-attr,
+.hljs-selector-class,
+.hljs-selector-id {
+  color: var(--prettylights-syntax-constant);
+}
+
+.hljs-regexp,
+.hljs-string,
+.hljs-meta .hljs-string {
+  color: var(--prettylights-syntax-string);
+}
+
+.hljs-built_in,
+.hljs-symbol {
+  color: var(--prettylights-syntax-variable);
+}
+
+.hljs-comment,
+.hljs-code,
+.hljs-formula {
+  color: var(--prettylights-syntax-comment);
+}
+
+.hljs-name,
+.hljs-quote,
+.hljs-selector-tag,
+.hljs-selector-pseudo {
+  color: var(--prettylights-syntax-entity-tag);
+}
+
+.hljs-subst {
+  color: var(--prettylights-syntax-storage-modifier-import);
+}
+
+.hljs-section {
+  font-weight: bold;
+  color: var(--prettylights-syntax-markup-heading);
+}
+
+.hljs-bullet {
+  color: var(--prettylights-syntax-markup-list);
+}
+
+.hljs-emphasis {
+  font-style: italic;
+  color: var(--prettylights-syntax-markup-italic);
+}
+
+.hljs-strong {
+  font-weight: bold;
+  color: var(--prettylights-syntax-markup-bold);
+}
+
+.hljs-addition {
+  color: var(--prettylights-syntax-markup-inserted-text);
+  background-color: var(--prettylights-syntax-markup-inserted-bg);
+}
+
+.hljs-deletion {
+  color: var(--prettylights-syntax-markup-deleted-text);
+  background-color: var(--prettylights-syntax-markup-deleted-bg);
+}
+
+.hljs-char.escape_,
+.hljs-link,
+.hljs-params,
+.hljs-property,
+.hljs-punctuation,
+.hljs-tag {
+  /* purposely ignored */
+}

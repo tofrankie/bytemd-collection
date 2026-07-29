@@ -1,4 +1,4 @@
 pnpm-lock.yaml
 
-packages/plugin-highlight/styles/
-packages/plugin-highlight/scss/
+# @tofrankie/bytemd-plugin-highlight
+packages/plugin-highlight/artifacts/styles/
