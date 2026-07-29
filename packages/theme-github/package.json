@@ -1,7 +1,7 @@
 {
   "name": "bytemd-theme-github",
   "type": "module",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "packageManager": "pnpm@10.33.4",
   "description": "GitHub Flavored Markdown theme styles for bytemd",
   "author": "Frankie <1426203851@qq.com>",
@@ -61,7 +61,7 @@
     "publint": "publint"
   },
   "devDependencies": {
-    "@tofrankie/github-markdown-css": "^0.0.2",
+    "@tofrankie/github-markdown-css": "^0.0.3",
     "sass": "^1.94.0"
   }
 }
