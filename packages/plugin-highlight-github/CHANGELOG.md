@@ -1,5 +1,11 @@
 # Change log
 
+## bytemd-plugin-highlight-github@0.0.8
+
+> 2026-07-31
+
+- Rename to [bytemd-plugin-highlight-github](https://www.npmjs.com/package/bytemd-plugin-highlight-github)
+
 ## @tofrankie/bytemd-plugin-highlight@0.0.6
 
 > 2026-07-31

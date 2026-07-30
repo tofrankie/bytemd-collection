@@ -1,7 +1,7 @@
 {
   "name": "bytemd-plugin-highlight-github",
   "type": "module",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "packageManager": "pnpm@10.33.4",
   "description": "A bytemd plugin for syntax highlighting with bundled theme styles",
   "author": "Frankie <1426203851@qq.com>",
@@ -58,9 +58,6 @@
     "CHANGELOG.md",
     "dist"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
     "dev": "tsdown --watch",
     "build": "run-s build:bundle build:styles",

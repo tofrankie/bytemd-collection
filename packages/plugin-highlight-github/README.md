@@ -4,9 +4,6 @@
 
 A bytemd plugin for syntax highlighting, plus bundled Primer-based theme styles.
 
-> [!IMPORTANT]
-> Migrate to [bytemd-plugin-highlight-github](https://www.npmjs.com/package/bytemd-plugin-highlight-github)
-
 ## Usage
 
 ```bash
