@@ -3,15 +3,22 @@
 @use './generated-theme-data' as generated;
 @use './rules' as rules;
 
-@function _base-token-map() {
-  @return generated.$base-token-map;
+@function _base-token-map($container) {
+  $tokens: map.get(generated.$base-token-maps, $container);
+
+  @if $tokens == null {
+    @error 'Unknown rule token source: #{$container}';
+  }
+
+  @return $tokens;
 }
 
-@function _theme-token-group($name) {
-  $group: map.get(generated.$theme-token-groups, $name);
+@function _theme-token-group($container, $name) {
+  $theme-maps: map.get(generated.$theme-token-maps, $container);
+  $group: map.get($theme-maps, $name);
 
   @if $group == null {
-    @error 'Unknown theme token group: #{$name}';
+    @error 'Unknown theme token group "#{$name}" for "#{$container}"';
   }
 
   @return $group;
@@ -47,7 +54,7 @@
     }
 
     #{$container} {
-      @include _emit-declarations(_base-token-map());
+      @include _emit-declarations(_base-token-map($container));
     }
 
     @each $mode-name, $mode in $modes {
@@ -62,12 +69,12 @@
       @if $media != null {
         @media #{$media} {
           #{_resolve-selectors($selectors)} {
-            @include _emit-declarations(_theme-token-group($token-group-name));
+            @include _emit-declarations(_theme-token-group($container, $token-group-name));
           }
         }
       } @else {
         #{_resolve-selectors($selectors)} {
-          @include _emit-declarations(_theme-token-group($token-group-name));
+          @include _emit-declarations(_theme-token-group($container, $token-group-name));
         }
       }
     }

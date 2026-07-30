@@ -1,6 +1,6 @@
 # bytemd-theme-editor-github
 
-[![npm version](https://img.shields.io/npm/v/bytemd-theme-editor-github)](https://www.npmjs.com/package/bytemd-theme-editor-github) [![npm package license](https://img.shields.io/npm/l/bytemd-theme-editor-github)](https://github.com/tofrankie/bytemd-collection/blob/main/packages/theme-github-editor/LICENSE) [![npm last update](https://img.shields.io/npm/last-update/bytemd-theme-editor-github)](https://www.npmjs.com/package/bytemd-theme-editor-github)
+[![npm version](https://img.shields.io/npm/v/bytemd-theme-editor-github)](https://www.npmjs.com/package/bytemd-theme-editor-github) [![npm package license](https://img.shields.io/npm/l/bytemd-theme-editor-github)](https://github.com/tofrankie/bytemd-collection/blob/main/packages/theme-editor-github/LICENSE) [![npm last update](https://img.shields.io/npm/last-update/bytemd-theme-editor-github)](https://www.npmjs.com/package/bytemd-theme-editor-github)
 
 GitHub-flavored editor theme styles for bytemd, with bundled Primer-based tokens for the editor container and Tippy overlays.
 
@@ -148,6 +148,20 @@ selectors: ('.editor-shell .bytemd', 'body:has(.editor-shell) .tippy-box');
 ```
 
 This outputs one comma-separated selector group without combining the selectors with `container`.
+
+## Patch Sources
+
+Individual patch sources are published under `patchs/` for advanced composition:
+
+```scss
+@use 'bytemd-theme-editor-github/patchs/editor.scss' as editor;
+@use 'bytemd-theme-editor-github/patchs/tippy.scss' as tippy;
+
+@include editor.render-editor();
+@include tippy.render-tippy();
+```
+
+To add a new patch, create a new `src/patchs/<name>.scss` file, expose a matching `render-<name>()` mixin, import it from `src/patchs/index.scss`, and run the package build.
 
 ## License
 

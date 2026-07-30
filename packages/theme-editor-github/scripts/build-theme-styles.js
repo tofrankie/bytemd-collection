@@ -1,8 +1,8 @@
 import { mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { createRequire } from 'node:module'
 import path from 'node:path'
-import { fileURLToPath } from 'node:url'
-import { compileAsync } from 'sass'
+import { fileURLToPath, pathToFileURL } from 'node:url'
+import { compileAsync, compileStringAsync } from 'sass'
 
 const CUSTOM_PROPERTY_PATTERN = /var\((--[\w-]+)/g
 const AUTO_THEME_PAIRS = [
@@ -87,8 +87,8 @@ export async function buildThemeStyles() {
   const distDir = path.join(packageRoot, 'dist')
   const artifactsDir = path.join(packageRoot, 'artifacts', 'styles')
   const pureCss = await buildPureCss(packageRoot)
-  const referencedVariables = collectReferencedVariables(pureCss)
-  const themeBuildData = await buildThemeData(referencedVariables)
+  const ruleSources = await buildRuleSources(packageRoot)
+  const themeBuildData = await buildThemeData(ruleSources)
 
   await Promise.all([resetDir(distDir), resetDir(artifactsDir)])
 
@@ -101,16 +101,10 @@ export async function buildThemeStyles() {
     ),
   ])
 
-  for (const themeName of themeBuildData.themeTokens.keys()) {
-    const declarations = themeBuildData.themeTokens.get(themeName)
-
-    if (!declarations) {
-      throw new Error(`Missing token data for theme "${themeName}"`)
-    }
-
+  for (const themeName of themeBuildData.themeNames) {
     const finalCss = createThemeCss({
       banner: `/* Generated from @primer/primitives theme: ${themeName}.css */`,
-      tokenCss: createFixedThemeTokenCss(themeName, declarations, themeBuildData.baseTokens),
+      tokenCss: createFixedThemeTokenCss(themeName, themeBuildData.ruleSources),
       pureCss,
     })
 
@@ -124,7 +118,7 @@ export async function buildThemeStyles() {
     AUTO_THEME_PAIRS.map(pair => {
       const autoCss = createThemeCss({
         banner: `/* Generated from @primer/primitives themes: ${pair.lightThemeKey}.css + ${pair.darkThemeKey}.css */`,
-        tokenCss: createAutoThemeTokenCss(themeBuildData, pair),
+        tokenCss: createAutoThemeTokenCss(themeBuildData.ruleSources, pair),
         pureCss,
       })
 
@@ -153,35 +147,83 @@ async function buildPureCss(packageRoot) {
   return [tippyBaseCss.trim(), tippyThemeCss.trim(), result.css.trim()].join('\n\n')
 }
 
-async function buildThemeData(referencedVariables) {
+async function buildRuleSources(packageRoot) {
+  const patchsDir = path.join(packageRoot, 'src', 'patchs')
+  const filenames = (await readdir(patchsDir))
+    .filter(filename => filename.endsWith('.scss') && filename !== 'index.scss')
+    .sort()
+
+  return Promise.all(
+    filenames.map(async filename => {
+      const sourceName = filename.replace(/\.scss$/, '')
+      const sourceFile = path.join(patchsDir, filename)
+      const result = await compileStringAsync(
+        `@use './${filename}' as rules;\n@include rules.render-${sourceName}();`,
+        {
+          style: 'expanded',
+          url: pathToFileURL(path.join(patchsDir, `__${sourceName}-entry.scss`)),
+        }
+      )
+      const css = result.css.trim()
+      const containers = extractTopLevelSelectors(css)
+
+      if (containers.length === 0) {
+        throw new Error(`Unable to find a top-level selector in ${filename}`)
+      }
+
+      return {
+        container: containers[0],
+        name: sourceName,
+        referencedVariables: collectReferencedVariables(css),
+      }
+    })
+  )
+}
+
+async function buildThemeData(ruleSources) {
   const primerPackageRoot = path.dirname(resolvePackageFile('@primer/primitives/package.json'))
   const staticDeclarations = await readStaticDeclarations(primerPackageRoot)
   const themeDir = path.join(primerPackageRoot, 'dist', 'css', 'functional', 'themes')
   const themeFiles = (await readdir(themeDir)).filter(filename => filename.endsWith('.css')).sort()
-  const themeBuildData = new Map()
   const staticDeclarationMap = new Map(staticDeclarations)
-  const baseTokenEntries = resolveAvailableDeclarationClosure({
-    referencedVariables,
-    declarationMap: staticDeclarationMap,
+  const themeFilesData = await Promise.all(
+    themeFiles.map(async filename => ({
+      declarations: parseCustomPropertyDeclarations(
+        await readFile(path.join(themeDir, filename), 'utf8')
+      ),
+      name: filename.replace(/\.css$/, ''),
+    }))
+  )
+  const sources = ruleSources.map(source => {
+    const baseTokens = resolveAvailableDeclarationClosure({
+      referencedVariables: source.referencedVariables,
+      declarationMap: staticDeclarationMap,
+    })
+    const baseTokenNames = new Set(baseTokens.map(([name]) => name))
+    const themeTokens = new Map()
+
+    for (const theme of themeFilesData) {
+      themeTokens.set(
+        theme.name,
+        resolveDeclarationClosure({
+          referencedVariables: source.referencedVariables,
+          declarationMap: new Map(theme.declarations),
+          sourceLabel: `${source.name}/${theme.name}`,
+          optionalNames: baseTokenNames,
+        })
+      )
+    }
+
+    return {
+      ...source,
+      baseTokens,
+      themeTokens,
+    }
   })
 
-  for (const filename of themeFiles) {
-    const content = await readFile(path.join(themeDir, filename), 'utf8')
-    const declarations = parseCustomPropertyDeclarations(content)
-    const declarationMap = new Map(declarations)
-    const selectedDeclarations = resolveDeclarationClosure({
-      referencedVariables,
-      declarationMap,
-      sourceLabel: filename,
-      optionalNames: new Set(baseTokenEntries.map(([name]) => name)),
-    })
-
-    themeBuildData.set(filename.replace(/\.css$/, ''), selectedDeclarations)
-  }
-
   return {
-    baseTokens: baseTokenEntries,
-    themeTokens: themeBuildData,
+    ruleSources: sources,
+    themeNames: themeFilesData.map(theme => theme.name),
   }
 }
 
@@ -271,126 +313,73 @@ function createThemeCss({ banner, tokenCss, pureCss }) {
   return [banner, tokenCss.trim(), pureCss.trim(), ''].join('\n\n')
 }
 
-function createFixedThemeTokenCss(themeName, declarations, baseTokens) {
-  const tokenGroup = [
-    {
-      container: '.bytemd',
-      modes: {
-        [themeName]: {
-          selectors: ['.bytemd'],
-          tokens: themeName,
-        },
-      },
-    },
-    {
-      container: '.tippy-box',
-      modes: {
-        [themeName]: {
-          selectors: ['.tippy-box'],
-          tokens: themeName,
-        },
-      },
-    },
-  ]
-
-  return renderTargets({
-    targets: tokenGroup,
-    baseTokens,
-    themeTokens: new Map([[themeName, declarations]]),
-  })
+function createFixedThemeTokenCss(themeName, ruleSources) {
+  return ruleSources
+    .flatMap(source => [
+      createDeclarationBlock(source.container, source.baseTokens),
+      createDeclarationBlock(source.container, source.themeTokens.get(themeName)),
+    ])
+    .join('\n\n')
 }
 
-function createAutoThemeTokenCss(themeBuildData, pair) {
-  const targets = [
-    {
-      container: '.bytemd',
-      modes: {
-        light: {
-          selectors: [
-            `[data-color-mode='light'][data-light-theme='${pair.lightThemeKey}'] .bytemd`,
-          ],
-          tokens: pair.lightThemeKey,
-        },
-        'light-auto': {
-          selectors: [`[data-color-mode='auto'][data-light-theme='${pair.lightThemeKey}'] .bytemd`],
-          tokens: pair.lightThemeKey,
-          media: '(prefers-color-scheme: light)',
-        },
-        dark: {
-          selectors: [`[data-color-mode='dark'][data-dark-theme='${pair.darkThemeKey}'] .bytemd`],
-          tokens: pair.darkThemeKey,
-        },
-        'dark-auto': {
-          selectors: [`[data-color-mode='auto'][data-dark-theme='${pair.darkThemeKey}'] .bytemd`],
-          tokens: pair.darkThemeKey,
-          media: '(prefers-color-scheme: dark)',
-        },
-      },
-    },
-    {
-      container: '.tippy-box',
-      modes: {
-        light: {
-          selectors: [
-            `body:has(#root > [data-color-mode='light'][data-light-theme='${pair.lightThemeKey}']) .tippy-box`,
-          ],
-          tokens: pair.lightThemeKey,
-        },
-        'light-auto': {
-          selectors: [
-            `body:has(#root > [data-color-mode='auto'][data-light-theme='${pair.lightThemeKey}']) .tippy-box`,
-          ],
-          tokens: pair.lightThemeKey,
-          media: '(prefers-color-scheme: light)',
-        },
-        dark: {
-          selectors: [
-            `body:has(#root > [data-color-mode='dark'][data-dark-theme='${pair.darkThemeKey}']) .tippy-box`,
-          ],
-          tokens: pair.darkThemeKey,
-        },
-        'dark-auto': {
-          selectors: [
-            `body:has(#root > [data-color-mode='auto'][data-dark-theme='${pair.darkThemeKey}']) .tippy-box`,
-          ],
-          tokens: pair.darkThemeKey,
-          media: '(prefers-color-scheme: dark)',
-        },
-      },
-    },
-  ]
+function createAutoThemeTokenCss(ruleSources, pair) {
+  return ruleSources
+    .flatMap(source => {
+      const lightSelector = createAutoSelector(source.container, 'light', pair)
+      const lightAutoSelector = createAutoSelector(source.container, 'light-auto', pair)
+      const darkSelector = createAutoSelector(source.container, 'dark', pair)
+      const darkAutoSelector = createAutoSelector(source.container, 'dark-auto', pair)
 
-  return renderTargets({ targets, ...themeBuildData })
+      return [
+        createDeclarationBlock(source.container, source.baseTokens),
+        createDeclarationBlock(lightSelector, source.themeTokens.get(pair.lightThemeKey)),
+        createDeclarationBlock(
+          lightAutoSelector,
+          source.themeTokens.get(pair.lightThemeKey),
+          { media: '(prefers-color-scheme: light)' }
+        ),
+        createDeclarationBlock(darkSelector, source.themeTokens.get(pair.darkThemeKey)),
+        createDeclarationBlock(
+          darkAutoSelector,
+          source.themeTokens.get(pair.darkThemeKey),
+          { media: '(prefers-color-scheme: dark)' }
+        ),
+      ]
+    })
+    .join('\n\n')
 }
 
-function renderTargets({ targets, baseTokens, themeTokens }) {
-  const blocks = []
+function createAutoSelector(container, mode, pair) {
+  const isTippy = container === '.tippy-box'
+  const colorMode = mode.includes('auto') ? 'auto' : mode
+  const themeType = mode.startsWith('light') ? 'light' : 'dark'
+  const themeKey = themeType === 'light' ? pair.lightThemeKey : pair.darkThemeKey
+  const stateSelector = `[data-color-mode='${colorMode}'][data-${themeType}-theme='${themeKey}']`
 
-  for (const target of targets) {
-    blocks.push(createDeclarationBlock(target.container, baseTokens))
+  return isTippy
+    ? `body:has(#root > ${stateSelector}) ${container}`
+    : `${stateSelector} ${container}`
+}
 
-    for (const mode of Object.values(target.modes)) {
-      const declarations = themeTokens.get(mode.tokens)
+function extractTopLevelSelectors(css) {
+  const selectors = []
+  let depth = 0
 
-      if (!declarations) {
-        throw new Error(`Unknown token group "${mode.tokens}"`)
-      }
+  for (const line of css.split('\n')) {
+    const trimmedLine = line.trim()
 
-      for (const selector of resolveSelectors(mode.selectors)) {
-        blocks.push(createDeclarationBlock(selector, declarations, mode))
-      }
+    if (depth === 0 && trimmedLine.endsWith('{') && !trimmedLine.startsWith('@')) {
+      selectors.push(trimmedLine.slice(0, -1).trim())
     }
-  }
 
-  return blocks.join('\n\n')
-}
-
-function resolveSelectors(selectors) {
-  if (!selectors || selectors.length === 0) {
-    return []
+    depth += countCharacters(line, '{') - countCharacters(line, '}')
   }
 
   return selectors
+}
+
+function countCharacters(value, character) {
+  return value.split(character).length - 1
 }
 
 function createDeclarationBlock(selector, declarations, { media } = {}) {
@@ -407,21 +396,32 @@ function createDeclarationBlock(selector, declarations, { media } = {}) {
   return `@media ${media} {\n${indentLines(block, 2)}\n}`
 }
 
-function createScssThemeData({ baseTokens, themeTokens }) {
-  const lines = ['$base-token-map: (']
+function createScssThemeData({ ruleSources, themeNames }) {
+  const lines = ['$base-token-maps: (']
 
-  for (const [name, value] of baseTokens) {
-    lines.push(`  '${name}': "${escapeForScssString(value)}",`)
+  for (const source of ruleSources) {
+    lines.push(`  '${source.container}': (`)
+
+    for (const [name, value] of source.baseTokens) {
+      lines.push(`    '${name}': "${escapeForScssString(value)}",`)
+    }
+
+    lines.push('  ),')
   }
 
-  lines.push(') !default;', '', '$theme-token-groups: (')
-  const themeNames = Array.from(themeTokens.keys()).sort()
+  lines.push(') !default;', '', '$theme-token-maps: (')
 
-  for (const themeName of themeNames) {
-    lines.push(`  '${themeName}': (`)
+  for (const source of ruleSources) {
+    lines.push(`  '${source.container}': (`)
 
-    for (const [name, value] of themeTokens.get(themeName)) {
-      lines.push(`    '${name}': "${escapeForScssString(value)}",`)
+    for (const themeName of themeNames) {
+      lines.push(`    '${themeName}': (`)
+
+      for (const [name, value] of source.themeTokens.get(themeName)) {
+        lines.push(`      '${name}': "${escapeForScssString(value)}",`)
+      }
+
+      lines.push('    ),')
     }
 
     lines.push('  ),')

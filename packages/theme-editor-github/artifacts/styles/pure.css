@@ -7,7 +7,7 @@
   color: var(--fgColor-default);
   border: var(--borderWidth-thin) solid var(--borderColor-default);
   background-color: var(--bgColor-default);
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+  font-family: var(--fontStack-sansSerif, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji);
   height: 300px;
 }
 .bytemd * {
@@ -19,7 +19,7 @@
 .bytemd .cm-editor,
 .bytemd code,
 .bytemd kbd {
-  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+  font-family: var(--fontStack-monospace, SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace);
 }
 .bytemd-toolbar {
   padding: 4px 12px;

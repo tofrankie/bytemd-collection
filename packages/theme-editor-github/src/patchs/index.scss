@@ -1,0 +1,7 @@
+@use './editor' as editor;
+@use './tippy' as tippy;
+
+@mixin render-rules() {
+  @include editor.render-editor();
+  @include tippy.render-tippy();
+}

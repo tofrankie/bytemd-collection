@@ -1,7 +1,5 @@
-@use './editor-rules' as editor;
-@use './tippy-rules' as tippy;
+@use '../src/patchs' as patchs;
 
 @mixin render-rules() {
-  @include editor.render-editor-rules();
-  @include tippy.render-tippy-rules();
+  @include patchs.render-rules();
 }
