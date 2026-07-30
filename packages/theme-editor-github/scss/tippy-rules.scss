@@ -1,0 +1,27 @@
+@mixin render-tippy-rules() {
+  .tippy-box {
+    font-size: var(--base-size-12);
+    box-shadow: var(--shadow-floating-small);
+  }
+
+  .tippy-box[data-theme~='light-border'] {
+    color: var(--fgColor-default);
+    background-color: var(--overlay-bgColor);
+    border: var(--borderWidth-thin) solid var(--overlay-borderColor);
+    border-radius: var(--borderRadius-medium);
+
+    .tippy-content {
+      color: inherit;
+    }
+  }
+
+  .tippy-box[data-theme~='bytemd-dark'] {
+    color: var(--tooltip-fgColor);
+    background-color: var(--tooltip-bgColor);
+    border-radius: var(--borderRadius-medium);
+
+    .tippy-content {
+      color: inherit;
+    }
+  }
+}

@@ -1,0 +1,68 @@
+@use 'sass:list';
+@use 'sass:map';
+@use './generated-theme-data' as generated;
+@use './rules' as rules;
+
+@function _theme-token-group($name) {
+  $group: map.get(generated.$theme-token-groups, $name);
+
+  @if $group == null {
+    @error 'Unknown theme token group: #{$name}';
+  }
+
+  @return $group;
+}
+
+@function _resolve-target-selectors($container, $selectors) {
+  $resolved: ();
+
+  @if $selectors == null or list.length($selectors) == 0 {
+    @return ($container);
+  }
+
+  @each $selector in $selectors {
+    $resolved: list.append($resolved, '#{$selector} #{$container}', comma);
+  }
+
+  @return $resolved;
+}
+
+@mixin _emit-declarations($declarations) {
+  @each $name, $value in $declarations {
+    #{$name}: #{$value};
+  }
+}
+
+@mixin render-theme-tokens($config) {
+  $targets: map.get($config, 'targets');
+
+  @if $targets == null or list.length($targets) == 0 {
+    @error 'render-theme-tokens() requires a non-empty targets list';
+  }
+
+  @each $target in $targets {
+    $container: map.get($target, 'container');
+    $modes: map.get($target, 'modes');
+
+    @if $container == null or $modes == null {
+      @error 'Each target requires container and modes';
+    }
+
+    @each $mode-name, $mode in $modes {
+      $selectors: map.get($mode, 'selectors');
+      $token-group-name: map.get($mode, 'tokens');
+
+      @if $token-group-name == null {
+        @error 'Mode "#{$mode-name}" for "#{$container}" is missing tokens';
+      }
+
+      #{_resolve-target-selectors($container, $selectors)} {
+        @include _emit-declarations(_theme-token-group($token-group-name));
+      }
+    }
+  }
+}
+
+@mixin render-rules() {
+  @include rules.render-rules();
+}

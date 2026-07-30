@@ -12,6 +12,7 @@ import ExampleEditor from '../components/example-editor'
 import ExampleLayout from '../components/example-layout'
 import allPluginsMarkdown from '../examples/all-plugins.md?raw'
 import '@tofrankie/bytemd-plugin-highlight/styles/pure.css'
+import 'bytemd-theme-editor-github/light.css'
 
 export default function AllPluginsPage() {
   const plugins = useMemo(

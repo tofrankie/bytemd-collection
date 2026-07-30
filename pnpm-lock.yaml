@@ -194,6 +194,18 @@ importers:
         specifier: ^1.22.0
         version: 1.22.0
 
+  packages/theme-editor-github:
+    devDependencies:
+      '@primer/primitives':
+        specifier: ^11.9.0
+        version: 11.9.0
+      sass:
+        specifier: ^1.102.0
+        version: 1.102.0
+      tippy.js:
+        specifier: ^6.3.7
+        version: 6.3.7
+
   packages/theme-github:
     devDependencies:
       '@tofrankie/github-markdown-css':
@@ -238,6 +250,9 @@ importers:
       bytemd-plugin-mermaid:
         specifier: workspace:*
         version: link:../packages/plugin-mermaid
+      bytemd-theme-editor-github:
+        specifier: workspace:*
+        version: link:../packages/theme-editor-github
       bytemd-theme-github:
         specifier: workspace:*
         version: link:../packages/theme-github

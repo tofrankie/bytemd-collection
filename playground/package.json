@@ -22,6 +22,7 @@
     "bytemd-plugin-github-alerts": "workspace:*",
     "bytemd-plugin-math": "workspace:*",
     "bytemd-plugin-mermaid": "workspace:*",
+    "bytemd-theme-editor-github": "workspace:*",
     "bytemd-theme-github": "workspace:*",
     "highlight.js": "^11.11.1",
     "react": "^19.2.6",

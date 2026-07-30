@@ -1,0 +1,69 @@
+{
+  "name": "bytemd-theme-editor-github",
+  "type": "module",
+  "version": "0.0.1",
+  "packageManager": "pnpm@10.33.4",
+  "description": "GitHub-flavored editor theme styles for bytemd with Primer-based tokens",
+  "author": "Frankie <1426203851@qq.com>",
+  "license": "MIT",
+  "funding": [
+    {
+      "type": "paypal",
+      "url": "https://paypal.me/tofrankie"
+    },
+    {
+      "type": "ifdian",
+      "url": "https://ifdian.net/a/tofrankie"
+    }
+  ],
+  "homepage": "https://github.com/tofrankie/bytemd-collection/tree/main/packages/theme-github-editor",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tofrankie/bytemd-collection.git",
+    "directory": "packages/theme-github-editor"
+  },
+  "bugs": {
+    "url": "https://github.com/tofrankie/bytemd-collection/issues"
+  },
+  "keywords": [
+    "bytemd",
+    "theme",
+    "github",
+    "editor",
+    "css"
+  ],
+  "sideEffects": [
+    "*.css",
+    "dist/*.css"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.mjs"
+    },
+    "./*.css": "./dist/*.css",
+    "./scss": "./scss/index.scss"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "style": "./dist/light.css",
+  "files": [
+    "CHANGELOG.md",
+    "dist",
+    "scss"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "node ./scripts/build-theme-styles.js",
+    "prepublishOnly": "pnpm run build",
+    "publint": "publint"
+  },
+  "devDependencies": {
+    "@primer/primitives": "^11.9.0",
+    "sass": "^1.102.0",
+    "tippy.js": "^6.3.7"
+  }
+}

@@ -2,3 +2,6 @@ pnpm-lock.yaml
 
 # @tofrankie/bytemd-plugin-highlight
 packages/plugin-highlight/artifacts/styles/
+# bytemd-theme-editor-github
+packages/theme-editor-github/artifacts/styles/
+packages/theme-editor-github/scss/generated-theme-data.scss
