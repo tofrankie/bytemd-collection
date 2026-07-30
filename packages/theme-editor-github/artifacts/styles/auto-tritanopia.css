@@ -1,4 +1,4 @@
-/* Generated from @primer/primitives theme: light.css */
+/* Generated from @primer/primitives themes: light-tritanopia.css + dark-tritanopia.css */
 
 .bytemd {
   --base-size-12: 0.75rem;
@@ -6,7 +6,7 @@
   --borderWidth-thin: 0.0625rem;
 }
 
-.bytemd {
+[data-color-mode='light'][data-light-theme='light-tritanopia'] .bytemd {
   --fgColor-danger: #d1242f;
   --bgColor-emphasis: #25292e;
   --bgColor-muted: #f6f8fa;
@@ -27,13 +27,82 @@
   --shadow-floating-small: 0 0 0 1px #d1d9e040, 0 6px 12px -3px #25292e0a, 0 6px 18px 0 #25292e1f;
 }
 
+@media (prefers-color-scheme: light) {
+  [data-color-mode='auto'][data-light-theme='light-tritanopia'] .bytemd {
+    --fgColor-danger: #d1242f;
+    --bgColor-emphasis: #25292e;
+    --bgColor-muted: #f6f8fa;
+    --borderColor-default: #d1d9e0;
+    --control-transparent-bgColor-hover: #818b981a;
+    --fgColor-accent: #0969da;
+    --fgColor-muted: #59636e;
+    --bgColor-default: #ffffff;
+    --button-invisible-bgColor-hover: var(--control-transparent-bgColor-hover);
+    --fgColor-default: #1f2328;
+    --fgColor-onEmphasis: #ffffff;
+    --overlay-bgColor: #ffffff;
+    --tooltip-bgColor: var(--bgColor-emphasis);
+    --codeMirror-cursor-fgColor: var(--fgColor-default);
+    --codeMirror-fgColor: var(--fgColor-default);
+    --overlay-borderColor: #d1d9e080;
+    --tooltip-fgColor: var(--fgColor-onEmphasis);
+    --shadow-floating-small: 0 0 0 1px #d1d9e040, 0 6px 12px -3px #25292e0a, 0 6px 18px 0 #25292e1f;
+  }
+}
+
+[data-color-mode='dark'][data-dark-theme='dark-tritanopia'] .bytemd {
+  --fgColor-accent: #4493f8;
+  --bgColor-default: #0d1117;
+  --bgColor-emphasis: #3d444d;
+  --bgColor-muted: #151b23;
+  --borderColor-default: #3d444d;
+  --control-transparent-bgColor-hover: #656c7633;
+  --fgColor-danger: #f85149;
+  --fgColor-default: #f0f6fc;
+  --fgColor-muted: #9198a1;
+  --borderColor-muted: #3d444db3;
+  --button-invisible-bgColor-hover: var(--control-transparent-bgColor-hover);
+  --codeMirror-cursor-fgColor: var(--fgColor-default);
+  --codeMirror-fgColor: var(--fgColor-default);
+  --fgColor-onEmphasis: #ffffff;
+  --overlay-bgColor: #010409;
+  --tooltip-bgColor: var(--bgColor-emphasis);
+  --overlay-borderColor: var(--borderColor-muted);
+  --tooltip-fgColor: var(--fgColor-onEmphasis);
+  --shadow-floating-small: 0 0 0 1px #3d444d, 0 6px 12px -3px #01040966, 0 6px 18px 0 #01040966;
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-color-mode='auto'][data-dark-theme='dark-tritanopia'] .bytemd {
+    --fgColor-accent: #4493f8;
+    --bgColor-default: #0d1117;
+    --bgColor-emphasis: #3d444d;
+    --bgColor-muted: #151b23;
+    --borderColor-default: #3d444d;
+    --control-transparent-bgColor-hover: #656c7633;
+    --fgColor-danger: #f85149;
+    --fgColor-default: #f0f6fc;
+    --fgColor-muted: #9198a1;
+    --borderColor-muted: #3d444db3;
+    --button-invisible-bgColor-hover: var(--control-transparent-bgColor-hover);
+    --codeMirror-cursor-fgColor: var(--fgColor-default);
+    --codeMirror-fgColor: var(--fgColor-default);
+    --fgColor-onEmphasis: #ffffff;
+    --overlay-bgColor: #010409;
+    --tooltip-bgColor: var(--bgColor-emphasis);
+    --overlay-borderColor: var(--borderColor-muted);
+    --tooltip-fgColor: var(--fgColor-onEmphasis);
+    --shadow-floating-small: 0 0 0 1px #3d444d, 0 6px 12px -3px #01040966, 0 6px 18px 0 #01040966;
+  }
+}
+
 .tippy-box {
   --base-size-12: 0.75rem;
   --borderRadius-medium: 0.375rem;
   --borderWidth-thin: 0.0625rem;
 }
 
-.tippy-box {
+body:has(#root > [data-color-mode='light'][data-light-theme='light-tritanopia']) .tippy-box {
   --fgColor-danger: #d1242f;
   --bgColor-emphasis: #25292e;
   --bgColor-muted: #f6f8fa;
@@ -52,6 +121,75 @@
   --overlay-borderColor: #d1d9e080;
   --tooltip-fgColor: var(--fgColor-onEmphasis);
   --shadow-floating-small: 0 0 0 1px #d1d9e040, 0 6px 12px -3px #25292e0a, 0 6px 18px 0 #25292e1f;
+}
+
+@media (prefers-color-scheme: light) {
+  body:has(#root > [data-color-mode='auto'][data-light-theme='light-tritanopia']) .tippy-box {
+    --fgColor-danger: #d1242f;
+    --bgColor-emphasis: #25292e;
+    --bgColor-muted: #f6f8fa;
+    --borderColor-default: #d1d9e0;
+    --control-transparent-bgColor-hover: #818b981a;
+    --fgColor-accent: #0969da;
+    --fgColor-muted: #59636e;
+    --bgColor-default: #ffffff;
+    --button-invisible-bgColor-hover: var(--control-transparent-bgColor-hover);
+    --fgColor-default: #1f2328;
+    --fgColor-onEmphasis: #ffffff;
+    --overlay-bgColor: #ffffff;
+    --tooltip-bgColor: var(--bgColor-emphasis);
+    --codeMirror-cursor-fgColor: var(--fgColor-default);
+    --codeMirror-fgColor: var(--fgColor-default);
+    --overlay-borderColor: #d1d9e080;
+    --tooltip-fgColor: var(--fgColor-onEmphasis);
+    --shadow-floating-small: 0 0 0 1px #d1d9e040, 0 6px 12px -3px #25292e0a, 0 6px 18px 0 #25292e1f;
+  }
+}
+
+body:has(#root > [data-color-mode='dark'][data-dark-theme='dark-tritanopia']) .tippy-box {
+  --fgColor-accent: #4493f8;
+  --bgColor-default: #0d1117;
+  --bgColor-emphasis: #3d444d;
+  --bgColor-muted: #151b23;
+  --borderColor-default: #3d444d;
+  --control-transparent-bgColor-hover: #656c7633;
+  --fgColor-danger: #f85149;
+  --fgColor-default: #f0f6fc;
+  --fgColor-muted: #9198a1;
+  --borderColor-muted: #3d444db3;
+  --button-invisible-bgColor-hover: var(--control-transparent-bgColor-hover);
+  --codeMirror-cursor-fgColor: var(--fgColor-default);
+  --codeMirror-fgColor: var(--fgColor-default);
+  --fgColor-onEmphasis: #ffffff;
+  --overlay-bgColor: #010409;
+  --tooltip-bgColor: var(--bgColor-emphasis);
+  --overlay-borderColor: var(--borderColor-muted);
+  --tooltip-fgColor: var(--fgColor-onEmphasis);
+  --shadow-floating-small: 0 0 0 1px #3d444d, 0 6px 12px -3px #01040966, 0 6px 18px 0 #01040966;
+}
+
+@media (prefers-color-scheme: dark) {
+  body:has(#root > [data-color-mode='auto'][data-dark-theme='dark-tritanopia']) .tippy-box {
+    --fgColor-accent: #4493f8;
+    --bgColor-default: #0d1117;
+    --bgColor-emphasis: #3d444d;
+    --bgColor-muted: #151b23;
+    --borderColor-default: #3d444d;
+    --control-transparent-bgColor-hover: #656c7633;
+    --fgColor-danger: #f85149;
+    --fgColor-default: #f0f6fc;
+    --fgColor-muted: #9198a1;
+    --borderColor-muted: #3d444db3;
+    --button-invisible-bgColor-hover: var(--control-transparent-bgColor-hover);
+    --codeMirror-cursor-fgColor: var(--fgColor-default);
+    --codeMirror-fgColor: var(--fgColor-default);
+    --fgColor-onEmphasis: #ffffff;
+    --overlay-bgColor: #010409;
+    --tooltip-bgColor: var(--bgColor-emphasis);
+    --overlay-borderColor: var(--borderColor-muted);
+    --tooltip-fgColor: var(--fgColor-onEmphasis);
+    --shadow-floating-small: 0 0 0 1px #3d444d, 0 6px 12px -3px #01040966, 0 6px 18px 0 #01040966;
+  }
 }
 
 .tippy-box[data-animation=fade][data-state=hidden]{opacity:0}[data-tippy-root]{max-width:calc(100vw - 10px)}.tippy-box{position:relative;background-color:#333;color:#fff;border-radius:4px;font-size:14px;line-height:1.4;white-space:normal;outline:0;transition-property:transform,visibility,opacity}.tippy-box[data-placement^=top]>.tippy-arrow{bottom:0}.tippy-box[data-placement^=top]>.tippy-arrow:before{bottom:-7px;left:0;border-width:8px 8px 0;border-top-color:initial;transform-origin:center top}.tippy-box[data-placement^=bottom]>.tippy-arrow{top:0}.tippy-box[data-placement^=bottom]>.tippy-arrow:before{top:-7px;left:0;border-width:0 8px 8px;border-bottom-color:initial;transform-origin:center bottom}.tippy-box[data-placement^=left]>.tippy-arrow{right:0}.tippy-box[data-placement^=left]>.tippy-arrow:before{border-width:8px 0 8px 8px;border-left-color:initial;right:-7px;transform-origin:center left}.tippy-box[data-placement^=right]>.tippy-arrow{left:0}.tippy-box[data-placement^=right]>.tippy-arrow:before{left:-7px;border-width:8px 8px 8px 0;border-right-color:initial;transform-origin:center right}.tippy-box[data-inertia][data-state=visible]{transition-timing-function:cubic-bezier(.54,1.5,.38,1.11)}.tippy-arrow{width:16px;height:16px;color:#333}.tippy-arrow:before{content:"";position:absolute;border-color:transparent;border-style:solid}.tippy-content{position:relative;padding:5px 9px;z-index:1}

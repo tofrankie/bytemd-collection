@@ -3,6 +3,10 @@
 @use './generated-theme-data' as generated;
 @use './rules' as rules;
 
+@function _base-token-map() {
+  @return generated.$base-token-map;
+}
+
 @function _theme-token-group($name) {
   $group: map.get(generated.$theme-token-groups, $name);
 
@@ -13,18 +17,12 @@
   @return $group;
 }
 
-@function _resolve-target-selectors($container, $selectors) {
-  $resolved: ();
-
+@function _resolve-selectors($selectors) {
   @if $selectors == null or list.length($selectors) == 0 {
-    @return ($container);
+    @return ();
   }
 
-  @each $selector in $selectors {
-    $resolved: list.append($resolved, '#{$selector} #{$container}', comma);
-  }
-
-  @return $resolved;
+  @return $selectors;
 }
 
 @mixin _emit-declarations($declarations) {
@@ -48,16 +46,29 @@
       @error 'Each target requires container and modes';
     }
 
+    #{$container} {
+      @include _emit-declarations(_base-token-map());
+    }
+
     @each $mode-name, $mode in $modes {
       $selectors: map.get($mode, 'selectors');
       $token-group-name: map.get($mode, 'tokens');
+      $media: map.get($mode, 'media');
 
-      @if $token-group-name == null {
-        @error 'Mode "#{$mode-name}" for "#{$container}" is missing tokens';
+      @if $selectors == null or list.length($selectors) == 0 or $token-group-name == null {
+        @error 'Mode "#{$mode-name}" for "#{$container}" requires selectors and tokens';
       }
 
-      #{_resolve-target-selectors($container, $selectors)} {
-        @include _emit-declarations(_theme-token-group($token-group-name));
+      @if $media != null {
+        @media #{$media} {
+          #{_resolve-selectors($selectors)} {
+            @include _emit-declarations(_theme-token-group($token-group-name));
+          }
+        }
+      } @else {
+        #{_resolve-selectors($selectors)} {
+          @include _emit-declarations(_theme-token-group($token-group-name));
+        }
       }
     }
   }

@@ -1,4 +1,4 @@
-/* Generated from @primer/primitives theme: light.css */
+/* Generated from @primer/primitives theme: light-colorblind.css */
 
 .bytemd {
   --base-size-12: 0.75rem;
@@ -7,12 +7,12 @@
 }
 
 .bytemd {
-  --fgColor-danger: #d1242f;
   --bgColor-emphasis: #25292e;
   --bgColor-muted: #f6f8fa;
   --borderColor-default: #d1d9e0;
   --control-transparent-bgColor-hover: #818b981a;
   --fgColor-accent: #0969da;
+  --fgColor-danger: #bc4c00;
   --fgColor-muted: #59636e;
   --bgColor-default: #ffffff;
   --button-invisible-bgColor-hover: var(--control-transparent-bgColor-hover);
@@ -34,12 +34,12 @@
 }
 
 .tippy-box {
-  --fgColor-danger: #d1242f;
   --bgColor-emphasis: #25292e;
   --bgColor-muted: #f6f8fa;
   --borderColor-default: #d1d9e0;
   --control-transparent-bgColor-hover: #818b981a;
   --fgColor-accent: #0969da;
+  --fgColor-danger: #bc4c00;
   --fgColor-muted: #59636e;
   --bgColor-default: #ffffff;
   --button-invisible-bgColor-hover: var(--control-transparent-bgColor-hover);
