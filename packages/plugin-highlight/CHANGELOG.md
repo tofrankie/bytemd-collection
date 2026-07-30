@@ -1,5 +1,11 @@
 # Change log
 
+## bytemd-plugin-highlight@0.0.6
+
+> 2026-07-31
+
+- Migrate to [bytemd-plugin-highlight-github](https://www.npmjs.com/package/bytemd-plugin-highlight-github)
+
 ## bytemd-plugin-highlight@0.0.5
 
 > 2026-07-30
