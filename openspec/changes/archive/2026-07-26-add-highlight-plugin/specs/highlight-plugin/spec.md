@@ -2,7 +2,7 @@
 
 ### Requirement: 可发布的高亮插件包
 
-系统 SHALL 提供名为 `@tofrankie/bytemd-plugin-highlight` 的工作区包。该包 MUST 声明 `bytemd` 为 peer dependency、声明 `highlight.js@^11.11.1` 为运行时 dependency，并提供 ESM、CJS、UMD 与 TypeScript 声明入口。
+系统 SHALL 提供名为 `bytemd-plugin-highlight-github` 的工作区包。该包 MUST 声明 `bytemd` 为 peer dependency、声明 `highlight.js@^11.11.1` 为运行时 dependency，并提供 ESM、CJS、UMD 与 TypeScript 声明入口。
 
 #### Scenario: 消费者从任一模块系统导入插件
 

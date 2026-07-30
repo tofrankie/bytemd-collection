@@ -18,6 +18,6 @@
 
 ## 4. 验证与文档
 
-- [x] 4.1 在 `packages/theme-github/README.md` 中说明默认浅色主题、短路径 CSS 导入方式，以及与 `bytemd-plugin-gfm`、`@tofrankie/bytemd-plugin-highlight` 的组合使用方式
+- [x] 4.1 在 `packages/theme-github/README.md` 中说明默认浅色主题、短路径 CSS 导入方式，以及与 `bytemd-plugin-gfm`、`bytemd-plugin-highlight-github` 的组合使用方式
 - [x] 4.2 执行新主题包与受影响 playground 的构建、类型检查和必要的发布入口校验
 - [x] 4.3 复查 OpenSpec、示例页面和包元数据，确认能力边界与用户要求一致后再进入实现阶段

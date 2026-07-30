@@ -30,7 +30,7 @@ playground SHALL 提供一个完整的 bytemd 编辑器示例页，用于验证�
 #### Scenario: 打开完整组合示例页
 
 - **WHEN** 用户访问完整 bytemd 组合示例路由
-- **THEN** 页面 MUST 同时接入仓库维护的 `bytemd-plugin-github-alerts`、`bytemd-plugin-gfm`、`@tofrankie/bytemd-plugin-highlight`、`bytemd-plugin-mermaid` 以及所需的官方 bytemd 插件，并展示可编辑的 Markdown 预览效果
+- **THEN** 页面 MUST 同时接入仓库维护的 `bytemd-plugin-github-alerts`、`bytemd-plugin-gfm`、`bytemd-plugin-highlight-github`、`bytemd-plugin-mermaid` 以及所需的官方 bytemd 插件，并展示可编辑的 Markdown 预览效果
 
 #### Scenario: 组合示例验证主题包
 

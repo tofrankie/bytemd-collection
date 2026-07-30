@@ -1,6 +1,6 @@
-# @tofrankie/bytemd-plugin-highlight
+# bytemd-plugin-highlight-github
 
-[![npm version](https://img.shields.io/npm/v/@tofrankie/bytemd-plugin-highlight)](https://www.npmjs.com/package/@tofrankie/bytemd-plugin-highlight) [![npm package license](https://img.shields.io/npm/l/@tofrankie/bytemd-plugin-highlight)](https://github.com/tofrankie/bytemd-collection/blob/main/packages/plugin-highlight/LICENSE) [![npm last update](https://img.shields.io/npm/last-update/@tofrankie/bytemd-plugin-highlight)](https://www.npmjs.com/package/@tofrankie/bytemd-plugin-highlight)
+[![npm version](https://img.shields.io/npm/v/bytemd-plugin-highlight-github)](https://www.npmjs.com/package/bytemd-plugin-highlight-github) [![npm package license](https://img.shields.io/npm/l/bytemd-plugin-highlight-github)](https://github.com/tofrankie/bytemd-collection/blob/main/packages/plugin-highlight-github/LICENSE) [![npm last update](https://img.shields.io/npm/last-update/bytemd-plugin-highlight-github)](https://www.npmjs.com/package/bytemd-plugin-highlight-github)
 
 A bytemd plugin for syntax highlighting, plus bundled Primer-based theme styles.
 
@@ -10,15 +10,15 @@ A bytemd plugin for syntax highlighting, plus bundled Primer-based theme styles.
 ## Usage
 
 ```bash
-pnpm add bytemd @bytemd/react @tofrankie/bytemd-plugin-highlight
+pnpm add bytemd @bytemd/react bytemd-plugin-highlight-github
 ```
 
 ````jsx
 import { Editor } from '@bytemd/react'
-import highlight from '@tofrankie/bytemd-plugin-highlight'
+import highlight from 'bytemd-plugin-highlight-github'
 import { useState } from 'react'
 import 'bytemd/dist/index.css'
-import '@tofrankie/bytemd-plugin-highlight/styles/light.css'
+import 'bytemd-plugin-highlight-github/styles/light.css'
 
 const plugins = [highlight()]
 
@@ -34,8 +34,8 @@ export default function App() {
 This package publishes generated CSS themes based on `@primer/primitives`, so you can import them directly from the plugin package.
 
 ```js
-import '@tofrankie/bytemd-plugin-highlight/styles/light.css'
-import '@tofrankie/bytemd-plugin-highlight/styles/dark.css'
+import 'bytemd-plugin-highlight-github/styles/light.css'
+import 'bytemd-plugin-highlight-github/styles/dark.css'
 ```
 
 Available themes:
@@ -63,7 +63,7 @@ Dark themes:
 If you want to keep theme variables and highlight rules separate, import `pure.css` and provide the `--prettylights-*` variables yourself:
 
 ```js
-import '@tofrankie/bytemd-plugin-highlight/styles/pure.css'
+import 'bytemd-plugin-highlight-github/styles/pure.css'
 ```
 
 ## Custom Languages
@@ -82,7 +82,7 @@ const plugins = [
 
 ## Credits ❤️
 
-Based on [@bytemd/plugin-highlight](https://github.com/pd4d10/bytemd/tree/main/packages/plugin-highlight)
+Based on [@bytemd/plugin-highlight](https://github.com/pd4d10/bytemd/tree/main/packages/plugin-highlight-github)
 
 Theme tokens and color system are powered by [@primer/primitives](https://github.com/primer/primitives)
 

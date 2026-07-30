@@ -1,5 +1,5 @@
 {
-  "name": "@tofrankie/bytemd-plugin-highlight",
+  "name": "bytemd-plugin-highlight-github",
   "type": "module",
   "version": "0.0.6",
   "packageManager": "pnpm@10.33.4",
@@ -16,11 +16,11 @@
       "url": "https://ifdian.net/a/tofrankie"
     }
   ],
-  "homepage": "https://github.com/tofrankie/bytemd-collection/tree/main/packages/plugin-highlight",
+  "homepage": "https://github.com/tofrankie/bytemd-collection/tree/main/packages/plugin-highlight-github",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tofrankie/bytemd-collection.git",
-    "directory": "packages/plugin-highlight"
+    "directory": "packages/plugin-highlight-github"
   },
   "bugs": {
     "url": "https://github.com/tofrankie/bytemd-collection/issues"

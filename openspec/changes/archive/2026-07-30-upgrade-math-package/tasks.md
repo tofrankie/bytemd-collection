@@ -7,7 +7,7 @@
 
 ## 2. 发布 KaTeX 样式与字体资源
 
-- [x] 2.1 为 `packages/plugin-math` 增加 KaTeX 样式资源的构建或复制流程，参考 `@tofrankie/bytemd-plugin-highlight` 生成包内可发布的 `dist/styles/katex.css` 与对应字体资源目录
+- [x] 2.1 为 `packages/plugin-math` 增加 KaTeX 样式资源的构建或复制流程，参考 `bytemd-plugin-highlight-github` 生成包内可发布的 `dist/styles/katex.css` 与对应字体资源目录
 - [x] 2.2 更新 `packages/plugin-math/package.json` 的 `exports`、`sideEffects`、`style` 或相关发布字段，暴露 `bytemd-plugin-math/styles/katex.css` 公开入口
 - [x] 2.3 复查 `packages/plugin-math/src/index.ts` 及相关源码，确保默认插件入口、`locale` / `katexOptions` API 与当前公式渲染行为在本次升级后保持兼容
 - [x] 2.4 验证 `dist/styles/katex.css` 中的字体引用路径能从 `bytemd-plugin-math` 包内解析，不要求消费者额外复制 `katex/dist/fonts/*`

@@ -1,18 +1,18 @@
 # Change log
 
-## bytemd-plugin-highlight@0.0.6
+## @tofrankie/bytemd-plugin-highlight@0.0.6
 
 > 2026-07-31
 
 - Migrate to [bytemd-plugin-highlight-github](https://www.npmjs.com/package/bytemd-plugin-highlight-github)
 
-## bytemd-plugin-highlight@0.0.5
+## @tofrankie/bytemd-plugin-highlight@0.0.5
 
 > 2026-07-30
 
 - Update token color
 
-## bytemd-plugin-highlight@0.0.4
+## @tofrankie/bytemd-plugin-highlight@0.0.4
 
 > 2026-07-30
 
@@ -20,13 +20,13 @@
 - Theme CSS is now generated from `@primer/primitives` and published from `dist/styles`
 - Package style exports still use `@tofrankie/bytemd-plugin-highlight/styles/<theme>.css`
 
-## bytemd-plugin-highlight@0.0.3
+## @tofrankie/bytemd-plugin-highlight@0.0.3
 
 > 2026-07-28
 
 - Update documentation
 
-## bytemd-plugin-highlight@0.0.2
+## @tofrankie/bytemd-plugin-highlight@0.0.2
 
 > 2026-07-27
 
@@ -37,7 +37,7 @@
   - `github-dark.css`
   - `github-dark-dimmed.css`
 
-## bytemd-plugin-highlight@0.0.1
+## @tofrankie/bytemd-plugin-highlight@0.0.1
 
 > 2026-07-26
 

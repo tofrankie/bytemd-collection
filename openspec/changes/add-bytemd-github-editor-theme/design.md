@@ -1,6 +1,6 @@
 ## Context
 
-当前仓库的 `packages/bytemd/src/index.scss` 仍使用 `@primer/css` 的 Sass 变量组织编辑器默认样式，而不是基于 CSS 自定义属性消费主题 token。与此同时，仓库已经在 `bytemd-theme-github` 和 `@tofrankie/bytemd-plugin-highlight` 中验证过两类与本次设计直接相关的模式：
+当前仓库的 `packages/bytemd/src/index.scss` 仍使用 `@primer/css` 的 Sass 变量组织编辑器默认样式，而不是基于 CSS 自定义属性消费主题 token。与此同时，仓库已经在 `bytemd-theme-github` 和 `bytemd-plugin-highlight-github` 中验证过两类与本次设计直接相关的模式：
 
 - 纯规则产物与主题变量产物可以拆开发布
 - 基于 `@primer/primitives` 生成主题产物时，应保留一份可提交的 artifacts 快照用于升级比对
@@ -85,7 +85,7 @@ SCSS 入口将参考 `github-markdown-css` 的思路，拆成两类职责：
 
 ### artifacts 目录作为主题快照基准
 
-和 `@tofrankie/bytemd-plugin-highlight` 一样，新包会把发布样式写入 `dist/`，同时把同源生成的快照写入 `artifacts/` 并纳入版本控制。这样升级 `@primer/primitives` 或调整规则后，维护者可以直接对比快照变化，而不是只依赖临时构建目录。
+和 `bytemd-plugin-highlight-github` 一样，新包会把发布样式写入 `dist/`，同时把同源生成的快照写入 `artifacts/` 并纳入版本控制。这样升级 `@primer/primitives` 或调整规则后，维护者可以直接对比快照变化，而不是只依赖临时构建目录。
 
 备选方案是只保留 `dist/` 构建结果。该方案不利于审查上游升级带来的主题变化，因此不采用。
 

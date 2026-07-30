@@ -33,7 +33,7 @@
 
 ### 2. 通过包内显式 CSS 子路径导出发布 KaTeX 样式和字体
 
-样式入口采用显式子路径 `bytemd-plugin-math/styles/katex.css`，并参考 `@tofrankie/bytemd-plugin-highlight` 的 style 导出方式，把最终 CSS 产物写入 `dist/styles/`。构建时从 `katex` 发布包复制或整理所需 CSS 与 `fonts/` 静态资源，写入插件包发布目录，并在 `exports`/`files`/`sideEffects` 中声明。这样消费者只需要记住 math 插件包自身的 CSS 入口，不再依赖 `katex/dist/*` 的外部路径，也不会因为导入 SCSS 源文件而在 Vite 等构建工具中报错。
+样式入口采用显式子路径 `bytemd-plugin-math/styles/katex.css`，并参考 `bytemd-plugin-highlight-github` 的 style 导出方式，把最终 CSS 产物写入 `dist/styles/`。构建时从 `katex` 发布包复制或整理所需 CSS 与 `fonts/` 静态资源，写入插件包发布目录，并在 `exports`/`files`/`sideEffects` 中声明。这样消费者只需要记住 math 插件包自身的 CSS 入口，不再依赖 `katex/dist/*` 的外部路径，也不会因为导入 SCSS 源文件而在 Vite 等构建工具中报错。
 
 备选方案：
 

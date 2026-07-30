@@ -57,9 +57,9 @@
 
 ### Requirement: 主题包 README 说明推荐插件组合
 
-`bytemd-theme-github` 的 README SHALL 明确说明该主题通常与 `bytemd-plugin-gfm` 和 `@tofrankie/bytemd-plugin-highlight` 等插件组合使用，并 MUST 提供包含主题导入、GFM 插件与高亮插件的最小接入示例。
+`bytemd-theme-github` 的 README SHALL 明确说明该主题通常与 `bytemd-plugin-gfm` 和 `bytemd-plugin-highlight-github` 等插件组合使用，并 MUST 提供包含主题导入、GFM 插件与高亮插件的最小接入示例。
 
 #### Scenario: 查看主题包 README 用法
 
 - **WHEN** 使用者打开 `packages/theme-github/README.md`
-- **THEN** README MUST 展示 `bytemd-theme-github` 的默认或显式主题导入方式，并说明如何与 `bytemd-plugin-gfm`、`@tofrankie/bytemd-plugin-highlight` 一起接入 bytemd
+- **THEN** README MUST 展示 `bytemd-theme-github` 的默认或显式主题导入方式，并说明如何与 `bytemd-plugin-gfm`、`bytemd-plugin-highlight-github` 一起接入 bytemd

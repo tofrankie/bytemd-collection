@@ -47,7 +47,7 @@
 
 内部可以保留 `styles/`、`scss/` 或构建中间目录来组织文件，但这些层级不会暴露给消费者。默认入口通过 `exports['.']` 指向 `light.css`，从而满足“默认 light”这一约定。
 
-备选方案是复用 `@tofrankie/bytemd-plugin-highlight/styles/*` 那种公开 `styles/` 子路径。该方案会让导入路径更长，也不符合用户要求，因此不采用。
+备选方案是复用 `bytemd-plugin-highlight-github/styles/*` 那种公开 `styles/` 子路径。该方案会让导入路径更长，也不符合用户要求，因此不采用。
 
 ### 将 bytemd 适配层合并到最终主题产物
 
@@ -65,15 +65,15 @@
 
 ### README 在主题包内集中说明组合用法
 
-`bytemd-theme-github` 的 README 不只展示单独导入主题，还要明确它通常和 `bytemd-plugin-gfm`、`@tofrankie/bytemd-plugin-highlight` 一起使用，并给出最小组合示例。这样主题、Markdown 扩展和代码高亮的关系都集中在主题包入口解释，避免把同一套说明散落到多个现有子包 README 中。
+`bytemd-theme-github` 的 README 不只展示单独导入主题，还要明确它通常和 `bytemd-plugin-gfm`、`bytemd-plugin-highlight-github` 一起使用，并给出最小组合示例。这样主题、Markdown 扩展和代码高亮的关系都集中在主题包入口解释，避免把同一套说明散落到多个现有子包 README 中。
 
-备选方案是同时修改 `bytemd-plugin-gfm` 和 `@tofrankie/bytemd-plugin-highlight` 的 README。该方案会扩大本次变更范围，也不符合用户刚确认的边界，因此不采用。
+备选方案是同时修改 `bytemd-plugin-gfm` 和 `bytemd-plugin-highlight-github` 的 README。该方案会扩大本次变更范围，也不符合用户刚确认的边界，因此不采用。
 
 ### 完整 playground 示例页只复用插件栈，不复制业务壳层
 
 新的完整示例页会参考 `github-blogger` 编辑器的插件集合，但仅复用“编辑器 + 插件栈 + 测试 Markdown + 主题样式”这部分，不复制其标题栏、标签、上传、网络请求或状态仓库。插件来源优先级为：
 
-- 优先使用本仓库 workspace 包：`bytemd-plugin-github-alerts`、`bytemd-plugin-gfm`、`@tofrankie/bytemd-plugin-highlight`、`bytemd-plugin-mermaid`、`bytemd-theme-github`
+- 优先使用本仓库 workspace 包：`bytemd-plugin-github-alerts`、`bytemd-plugin-gfm`、`bytemd-plugin-highlight-github`、`bytemd-plugin-mermaid`、`bytemd-theme-github`
 - 补齐官方插件：`@bytemd/plugin-frontmatter`、`@bytemd/plugin-breaks`、`@bytemd/plugin-gemoji`、`@bytemd/plugin-math`、`@bytemd/plugin-medium-zoom`
 
 这样既能验证仓库内维护包之间的联动，又不会把 playground 拖成一个带业务依赖的应用壳。

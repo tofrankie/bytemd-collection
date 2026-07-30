@@ -1,11 +1,11 @@
 ## Context
 
-见 [proposal.md](./proposal.md) 的 Why。当前 `@tofrankie/bytemd-plugin-highlight` 已经提供运行时高亮插件与样式导出，但样式层仍依赖透传上游 `highlight.js` 主题文件，无法表达仓库自己的 Primer 风格主题契约。仓库内已经安装 `@primer/primitives`，并且 `packages/plugin-highlight/src/base.scss` 已承载高亮规则，因此这次设计的重点是把“主题变量提取 + Sass 编译 + 包导出”串成稳定的构建流水线。
+见 [proposal.md](./proposal.md) 的 Why。当前 `bytemd-plugin-highlight-github` 已经提供运行时高亮插件与样式导出，但样式层仍依赖透传上游 `highlight.js` 主题文件，无法表达仓库自己的 Primer 风格主题契约。仓库内已经安装 `@primer/primitives`，并且 `packages/plugin-highlight-github/src/base.scss` 已承载高亮规则，因此这次设计的重点是把“主题变量提取 + Sass 编译 + 包导出”串成稳定的构建流水线。
 
 约束有三点：
 
 - 只调整样式相关产物，现有 JS/TS 入口与运行时高亮行为保持不变
-- 主题源来自 `packages/plugin-highlight/node_modules/@primer/primitives/dist/css/functional/themes`
+- 主题源来自 `packages/plugin-highlight-github/node_modules/@primer/primitives/dist/css/functional/themes`
 - 输出既要覆盖全部可用 Primer 功能主题，也要提供不带变量定义的 `pure.css`
 - 对外样式契约只保留 CSS 入口，不再维护 `scss/<theme>` 导出
 - 仓库内需要保留一份便于 diff 的构建基准样式副本
@@ -73,7 +73,7 @@
 
 ### 包导出显式列出样式子路径
 
-包的 `exports`、`files` 与构建脚本会同步更新，确保消费者只能通过 `@tofrankie/bytemd-plugin-highlight/styles/<theme>.css` 与 `.../styles/pure.css` 访问产物，而这些入口实际映射到 `dist/styles/` 下的发布文件。README 示例也以这些稳定子路径为准，同时移除 `scss/<theme>` 的任何说明。
+包的 `exports`、`files` 与构建脚本会同步更新，确保消费者只能通过 `bytemd-plugin-highlight-github/styles/<theme>.css` 与 `.../styles/pure.css` 访问产物，而这些入口实际映射到 `dist/styles/` 下的发布文件。README 示例也以这些稳定子路径为准，同时移除 `scss/<theme>` 的任何说明。
 
 备选方案是继续暴露宽泛的 `./styles/*` 并依赖目录复制结果自然生效。虽然实现上更省事，但这次变更需要明确从“第三方样式镜像”切换到“本包自有主题产物”，因此仍要同步审视导出清单与文档。
 
@@ -87,7 +87,7 @@
 
 ## Migration Plan
 
-1. 调整 `packages/plugin-highlight` 的构建依赖与脚本，接入 Sass 编译和 Primer 主题遍历逻辑
+1. 调整 `packages/plugin-highlight-github` 的构建依赖与脚本，接入 Sass 编译和 Primer 主题遍历逻辑
 2. 更新包导出与发布文件清单，生成 `styles/<theme>.css` 和 `styles/pure.css`
 3. 同步写出仓库内基准产物目录，供后续升级上游依赖时比较差异
 4. 删除或停止生成旧的 `highlight.js` 样式透传产物与 `scss` 导出

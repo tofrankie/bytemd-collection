@@ -2,7 +2,7 @@
 
 ### Requirement: Highlight example page
 
-playground SHALL 包含一个高亮插件示例路由，并 SHALL 使用 `@tofrankie/bytemd-plugin-highlight` 渲染可编辑的多语言代码块示例。
+playground SHALL 包含一个高亮插件示例路由，并 SHALL 使用 `bytemd-plugin-highlight-github` 渲染可编辑的多语言代码块示例。
 
 #### Scenario: 打开高亮插件示例
 

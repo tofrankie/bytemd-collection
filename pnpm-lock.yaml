@@ -155,7 +155,7 @@ importers:
         specifier: ^1.22.0
         version: 1.22.0
 
-  packages/plugin-highlight:
+  packages/plugin-highlight-github:
     dependencies:
       highlight.js:
         specifier: ^11.11.1
@@ -232,9 +232,6 @@ importers:
       '@bytemd/react':
         specifier: ^1.22.0
         version: 1.22.0(react@19.2.6)
-      '@tofrankie/bytemd-plugin-highlight':
-        specifier: workspace:*
-        version: link:../packages/plugin-highlight
       bytemd:
         specifier: ^1.22.0
         version: 1.22.0
@@ -244,6 +241,9 @@ importers:
       bytemd-plugin-github-alerts:
         specifier: workspace:*
         version: link:../packages/plugin-github-alerts
+      bytemd-plugin-highlight-github:
+        specifier: workspace:*
+        version: link:../packages/plugin-highlight-github
       bytemd-plugin-math:
         specifier: workspace:*
         version: link:../packages/plugin-math

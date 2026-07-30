@@ -8,7 +8,7 @@
 
 **Goals:**
 
-- 提供名称为 `@tofrankie/bytemd-plugin-highlight` 的独立、可发布 ByteMD 插件。
+- 提供名称为 `bytemd-plugin-highlight-github` 的独立、可发布 ByteMD 插件。
 - 对 Viewer 中的代码块按需加载 `highlight.js` 并调用其元素高亮 API。
 - 允许使用者通过异步或同步 `init` 回调注册语言、配置实例或执行其他初始化。
 - 对齐 Mermaid 子包的构建产物、peer dependency、元数据和 README 结构。
