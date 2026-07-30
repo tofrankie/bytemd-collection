@@ -1,9 +1,7 @@
 import highlight from '@tofrankie/bytemd-plugin-highlight'
+import dimmedDarkStyleUrl from '@tofrankie/bytemd-plugin-highlight/styles/dark-dimmed.css?url'
 import darkStyleUrl from '@tofrankie/bytemd-plugin-highlight/styles/dark.css?url'
-import defaultStyleUrl from '@tofrankie/bytemd-plugin-highlight/styles/default.css?url'
-import githubDarkDimmedStyleUrl from '@tofrankie/bytemd-plugin-highlight/styles/github-dark-dimmed.css?url'
-import githubDarkStyleUrl from '@tofrankie/bytemd-plugin-highlight/styles/github-dark.css?url'
-import githubStyleUrl from '@tofrankie/bytemd-plugin-highlight/styles/github.css?url'
+import lightStyleUrl from '@tofrankie/bytemd-plugin-highlight/styles/light.css?url'
 import { useEffect, useMemo, useState } from 'react'
 import ExampleEditor from '../components/example-editor'
 import ExampleLayout from '../components/example-layout'
@@ -11,11 +9,9 @@ import ExampleLayout from '../components/example-layout'
 import highlightMarkdown from '../examples/highlight.md?raw'
 
 const themes = [
-  { label: 'Default', value: 'default', href: defaultStyleUrl },
+  { label: 'Light', value: 'default', href: lightStyleUrl },
   { label: 'Dark', value: 'dark', href: darkStyleUrl },
-  { label: 'GitHub', value: 'github', href: githubStyleUrl },
-  { label: 'GitHub Dark', value: 'github-dark', href: githubDarkStyleUrl },
-  { label: 'GitHub Dimmed', value: 'github-dark-dimmed', href: githubDarkDimmedStyleUrl },
+  { label: 'Dimmed', value: 'github-dark-dimmed', href: dimmedDarkStyleUrl },
 ]
 
 export default function HighlightPage() {

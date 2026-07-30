@@ -29,4 +29,10 @@ export const ROUTES = [
     title: 'Mermaid',
     description: 'Mermaid 测试示例',
   },
+  {
+    id: 'math',
+    path: '/math',
+    title: 'Math',
+    description: 'KaTeX 数学公式测试示例',
+  },
 ]

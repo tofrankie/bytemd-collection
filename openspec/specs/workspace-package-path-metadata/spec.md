@@ -81,12 +81,17 @@
 
 ### Requirement: 子包发布文件约定
 
-每个可发布子包 MUST 包含 `LICENSE` 与 `CHANGELOG.md` 文件。`LICENSE` MUST 默认复制自仓库根目录的许可证文本；子包 `package.json` MUST 声明与该许可证一致的 `license` 协议，并 MUST 在 `files` 中包含 `CHANGELOG.md` 以及所有需要随包发布的静态文件。该约定 SHALL 作为后续新增子包时的默认模板要求。
+每个可发布子包 MUST 包含 `LICENSE` 与 `CHANGELOG.md` 文件。对于当前仓库新建或基于旧包重做的子包，`LICENSE` MUST 从仓库根目录 `LICENSE` 复制覆盖；由于根目录 `LICENSE` 已经指向当前维护者，子包 `LICENSE` 最终也 MUST 指向当前维护者，而不是继续保留上游包的版权署名。子包 `package.json` MUST 声明与该许可证文本一致的 `license` 协议，并 MUST 在 `files` 中包含 `CHANGELOG.md` 以及所有需要随包发布的静态文件。该约定 SHALL 作为后续新增或重做子包时的默认模板要求。
 
 #### Scenario: 检查子包许可证文件
 
 - **WHEN** 维护者查看任一可发布子包目录
-- **THEN** 目录中 MUST 存在从根目录许可证复制而来的 `LICENSE` 文件，且子包 `package.json` 的 `license` 字段 MUST 与之匹配
+- **THEN** 目录中 MUST 存在从根目录 `LICENSE` 复制覆盖而来的许可证文件，且子包 `package.json` 的 `license` 字段 MUST 与之匹配
+
+#### Scenario: 检查基于旧包重做后的许可证署名
+
+- **WHEN** 维护者查看一个基于旧包重做后的可发布子包 `LICENSE`
+- **THEN** 许可证文本 MUST 已通过根目录 `LICENSE` 覆盖而切换到当前维护者，而不是保留上游包版权署名
 
 #### Scenario: 检查子包变更记录与发布清单
 
@@ -106,6 +111,20 @@
 
 - **WHEN** 维护者查看任一可发布子包的 `package.json`
 - **THEN** 子包 MUST 提供统一格式的 `homepage`、`repository` 与 `bugs` 字段，并全部指向本项目对应的仓库页面
+
+### Requirement: 子包作者元数据模板
+
+每个可发布子包的 `package.json` MUST 提供统一的 `author` 字段。对于当前仓库新建或基于旧包重做的子包，`author` MUST 指向当前维护者，而不是继续沿用上游包作者信息。该约定 SHALL 作为后续新增或重做子包时的默认模板要求。
+
+#### Scenario: 检查新建子包的作者信息
+
+- **WHEN** 维护者查看一个新建可发布子包的 `package.json`
+- **THEN** `author` 字段 MUST 指向当前维护者，而不是留空或继承其他项目作者信息
+
+#### Scenario: 检查基于旧包重做的作者信息
+
+- **WHEN** 维护者查看一个基于旧包重做后的可发布子包 `package.json`
+- **THEN** `author` 字段 MUST 已切换到当前维护者，而不是保留上游包作者
 
 ### Requirement: 子包 funding 元数据模板
 

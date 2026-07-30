@@ -171,6 +171,19 @@ importers:
         specifier: ^1.102.0
         version: 1.102.0
 
+  packages/plugin-math:
+    dependencies:
+      katex:
+        specifier: ^0.18.1
+        version: 0.18.1
+      remark-math:
+        specifier: ^5.1.1
+        version: 5.1.1
+    devDependencies:
+      bytemd:
+        specifier: ^1.22.0
+        version: 1.22.0
+
   packages/plugin-mermaid:
     dependencies:
       mermaid:
@@ -201,9 +214,6 @@ importers:
       '@bytemd/plugin-gemoji':
         specifier: ^1.22.0
         version: 1.22.0(bytemd@1.22.0)
-      '@bytemd/plugin-math':
-        specifier: ^1.22.0
-        version: 1.22.0(bytemd@1.22.0)
       '@bytemd/plugin-medium-zoom':
         specifier: ^1.22.0
         version: 1.22.0(bytemd@1.22.0)
@@ -222,6 +232,9 @@ importers:
       bytemd-plugin-github-alerts:
         specifier: workspace:*
         version: link:../packages/plugin-github-alerts
+      bytemd-plugin-math:
+        specifier: workspace:*
+        version: link:../packages/plugin-math
       bytemd-plugin-mermaid:
         specifier: workspace:*
         version: link:../packages/plugin-mermaid
@@ -231,9 +244,6 @@ importers:
       highlight.js:
         specifier: ^11.11.1
         version: 11.11.1
-      katex:
-        specifier: ^0.18.1
-        version: 0.18.1
       react:
         specifier: ^19.2.6
         version: 19.2.6
@@ -501,11 +511,6 @@ packages:
 
   '@bytemd/plugin-gemoji@1.22.0':
     resolution: {integrity: sha512-jleWE3stK+tAr6kL4wBGTup85ShV2Mu85kKi9YQx1A/uwt5yqy/Uje6JuUs1DG6P/hl5TFkGyVekx5IpnOxbQA==}
-    peerDependencies:
-      bytemd: ^1.5.0
-
-  '@bytemd/plugin-math@1.22.0':
-    resolution: {integrity: sha512-eRzt83Tz1Xi2NCG9cXEXj3qP8YlTt5xnifZLNYW150RhDAelLmpiATfwdgp6IleaSY5rDIX8mVqvom1c7QSbbg==}
     peerDependencies:
       bytemd: ^1.5.0
 
@@ -1925,6 +1930,9 @@ packages:
 
   '@types/hast@3.0.4':
     resolution: {integrity: sha512-WPs+bbQw5aCj+x6laNGWLH3wviHtoCv/P3+otBhbOhJgG8qtpdAMlTCxLtsTWA7LH1Oh/bFCHsBn0TPS5m30EQ==}
+
+  '@types/hast@3.0.5':
+    resolution: {integrity: sha512-rp/ezSWaD1m44dPKICGhiskI13nVr7qTloFwDa/IYkhhf5nzwP+zIQcIJh3WIFSBOy/H1PzB40jPjMDksN4F+g==}
 
   '@types/js-yaml@4.0.9':
     resolution: {integrity: sha512-k4MGaQl5TGo/iipqb2UDG2UwjXziSWkh0uysQelTlJpX1qGlpUZYm8PnO4DxG1qBomtJUdYJ6qR6xdIah10JLg==}
@@ -6116,13 +6124,6 @@ snapshots:
       bytemd: 1.22.0
       remark-gemoji: 7.0.1
 
-  '@bytemd/plugin-math@1.22.0(bytemd@1.22.0)':
-    dependencies:
-      '@types/katex': 0.16.8
-      bytemd: 1.22.0
-      katex: 0.16.47
-      remark-math: 5.1.1
-
   '@bytemd/plugin-medium-zoom@1.22.0(bytemd@1.22.0)':
     dependencies:
       bytemd: 1.22.0
@@ -7654,6 +7655,10 @@ snapshots:
       '@types/unist': 2.0.11
 
   '@types/hast@3.0.4':
+    dependencies:
+      '@types/unist': 3.0.3
+
+  '@types/hast@3.0.5':
     dependencies:
       '@types/unist': 3.0.3
 
@@ -10707,7 +10712,7 @@ snapshots:
 
   mdast-util-math@3.0.0:
     dependencies:
-      '@types/hast': 3.0.4
+      '@types/hast': 3.0.5
       '@types/mdast': 4.0.4
       devlop: 1.1.0
       longest-streak: 3.1.0

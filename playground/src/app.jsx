@@ -5,6 +5,7 @@ import GfmPage from './pages/gfm'
 import GithubAlertsPage from './pages/github-alerts'
 import HighlightPage from './pages/highlight'
 import HomePage from './pages/index'
+import MathPage from './pages/math'
 import MermaidPage from './pages/mermaid'
 
 function AppShell() {
@@ -16,6 +17,7 @@ const exampleRouteElements = {
   'github-alerts': <GithubAlertsPage />,
   gfm: <GfmPage />,
   highlight: <HighlightPage />,
+  math: <MathPage />,
   mermaid: <MermaidPage />,
 }
 

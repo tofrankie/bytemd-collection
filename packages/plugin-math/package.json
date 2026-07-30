@@ -1,0 +1,91 @@
+{
+  "name": "bytemd-plugin-math",
+  "type": "module",
+  "version": "0.0.1",
+  "packageManager": "pnpm@10.33.4",
+  "description": "A bytemd plugin for rendering math formulae",
+  "author": "Frankie <1426203851@qq.com>",
+  "license": "MIT",
+  "funding": [
+    {
+      "type": "paypal",
+      "url": "https://paypal.me/tofrankie"
+    },
+    {
+      "type": "ifdian",
+      "url": "https://ifdian.net/a/tofrankie"
+    }
+  ],
+  "homepage": "https://github.com/tofrankie/bytemd-collection/tree/main/packages/plugin-math",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tofrankie/bytemd-collection.git",
+    "directory": "packages/plugin-math"
+  },
+  "bugs": {
+    "url": "https://github.com/tofrankie/bytemd-collection/issues"
+  },
+  "keywords": [
+    "bytemd",
+    "plugin",
+    "math",
+    "katex",
+    "markdown"
+  ],
+  "sideEffects": [
+    "*.css",
+    "dist/styles/*.css"
+  ],
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./styles/katex.css": {
+      "style": "./dist/styles/katex.css",
+      "import": "./dist/styles/katex.css",
+      "default": "./dist/styles/katex.css"
+    },
+    "./locales/*": "./locales/*",
+    "./lib/locales/*": "./locales/*"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "unpkg": "./dist/index.umd.js",
+  "jsdelivr": "./dist/index.umd.js",
+  "types": "./dist/index.d.ts",
+  "style": "./dist/styles/katex.css",
+  "files": [
+    "CHANGELOG.md",
+    "dist",
+    "locales"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "dev": "tsdown --watch",
+    "build": "run-s build:bundle build:styles",
+    "build:bundle": "tsdown",
+    "build:styles": "node ./scripts/build-katex-styles.js",
+    "prepublishOnly": "run-s typecheck build",
+    "typecheck": "tsc --noEmit",
+    "publint": "publint"
+  },
+  "peerDependencies": {
+    "bytemd": "^1.5.0"
+  },
+  "dependencies": {
+    "katex": "^0.18.1",
+    "remark-math": "^5.1.1"
+  },
+  "devDependencies": {
+    "bytemd": "^1.22.0"
+  }
+}
