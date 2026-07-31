@@ -11,18 +11,21 @@ if (isExecutedAsScript()) {
 export async function buildThemeStyles() {
   const packageRoot = getPackageRoot()
   const distDir = path.join(packageRoot, 'dist')
+  const artifactsDir = path.join(packageRoot, 'artifacts', 'styles')
   const sourceDir = resolveGithubMarkdownCssDist()
   const patchCss = await compilePatchStyles(packageRoot)
   const themeFiles = (await readdir(sourceDir)).filter(filename => filename.endsWith('.css'))
 
-  await rm(distDir, { recursive: true, force: true })
-  await mkdir(distDir, { recursive: true })
+  await Promise.all([resetDir(distDir), resetDir(artifactsDir)])
 
   await Promise.all(
     themeFiles.map(async filename => {
       const sourceCss = await readFile(path.join(sourceDir, filename), 'utf8')
       const finalCss = `${sourceCss}\n\n/* bytemd-theme-github patch layer */\n${patchCss.trim()}\n`
-      await writeFile(path.join(distDir, filename), finalCss)
+      await Promise.all([
+        writeFile(path.join(distDir, filename), finalCss),
+        writeFile(path.join(artifactsDir, filename), finalCss),
+      ])
     })
   )
 
@@ -52,6 +55,11 @@ function resolveGithubMarkdownCssDist() {
   const require = createRequire(import.meta.url)
   const lightThemePath = require.resolve('@tofrankie/github-markdown-css/light.css')
   return path.dirname(lightThemePath)
+}
+
+async function resetDir(targetDir) {
+  await rm(targetDir, { recursive: true, force: true })
+  await mkdir(targetDir, { recursive: true })
 }
 
 function handleError(error) {

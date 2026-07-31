@@ -6,3 +6,6 @@ packages/plugin-highlight-github/artifacts/styles/
 # bytemd-theme-editor-github
 packages/theme-editor-github/artifacts/styles/
 packages/theme-editor-github/scss/generated-theme-data.scss
+
+# bytemd-theme-github
+packages/theme-github/artifacts/styles/
