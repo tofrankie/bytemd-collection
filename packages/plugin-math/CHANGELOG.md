@@ -2,6 +2,12 @@
 
 All notable changes to this package will be documented in this file.
 
+## bytemd-plugin-math@0.0.2
+
+> 2026-07-31
+
+- Update condition exports
+
 ## bytemd-plugin-math@0.0.1
 
 > 2026-07-30
