@@ -63,6 +63,6 @@
     "mermaid": "^11.16.0"
   },
   "devDependencies": {
-    "bytemd": "^1.22.0"
+    "bytemd": "catalog:peer"
   }
 }

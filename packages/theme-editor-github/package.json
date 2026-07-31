@@ -74,8 +74,8 @@
     "publint": "publint"
   },
   "devDependencies": {
-    "@primer/primitives": "^11.9.0",
-    "sass": "^1.102.0",
+    "@primer/primitives": "catalog:prod",
+    "sass": "catalog:build",
     "tippy.js": "^6.3.7"
   }
 }

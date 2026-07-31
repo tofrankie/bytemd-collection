@@ -92,6 +92,6 @@
     "word-count": "^0.2.2"
   },
   "devDependencies": {
-    "@primer/css": "^15.2.0"
+    "@primer/css": "catalog:prod"
   }
 }

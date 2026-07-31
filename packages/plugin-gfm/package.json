@@ -65,6 +65,6 @@
     "remark-gfm": "^3.0.1"
   },
   "devDependencies": {
-    "bytemd": "^1.22.0"
+    "bytemd": "catalog:peer"
   }
 }

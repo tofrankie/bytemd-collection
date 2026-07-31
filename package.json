@@ -36,7 +36,7 @@
     "npm-run-all2": "^9.0.3",
     "prettier": "^3.9.6",
     "publint": "^0.3.22",
-    "sass": "^1.102.0",
+    "sass": "catalog:build",
     "svelte": "5.56.8",
     "tsdown": "^0.22.14",
     "typescript": "^5.9.3",

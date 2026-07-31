@@ -2,6 +2,7 @@ import { defineConfig } from '@tofrankie/eslint'
 
 export default defineConfig(
   {
+    ignores: ['packages/bytemd/**', 'playground/**/*.md'],
     typescript: true,
     react: true,
     svelte: {
@@ -23,6 +24,13 @@ export default defineConfig(
     files: ['**/*.md', '**/*.md/**'],
     rules: {
       'no-new': 'off',
+    },
+  },
+  {
+    files: ['**/package.json'],
+    rules: {
+      'pnpm/json-enforce-catalog': 'off',
+      'pnpm/json-valid-catalog': 'off',
     },
   }
 )

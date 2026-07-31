@@ -61,7 +61,7 @@
     "publint": "publint"
   },
   "devDependencies": {
-    "@tofrankie/github-markdown-css": "^0.0.3",
-    "sass": "^1.94.0"
+    "@tofrankie/github-markdown-css": "catalog:prod",
+    "sass": "catalog:build"
   }
 }

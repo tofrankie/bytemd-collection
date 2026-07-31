@@ -70,8 +70,8 @@
     "highlight.js": "^11.11.1"
   },
   "devDependencies": {
-    "@primer/primitives": "^11.9.0",
-    "bytemd": "^1.22.0",
-    "sass": "^1.102.0"
+    "@primer/primitives": "catalog:prod",
+    "bytemd": "catalog:peer",
+    "sass": "catalog:build"
   }
 }
