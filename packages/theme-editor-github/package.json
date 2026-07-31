@@ -37,11 +37,7 @@
     "dist/*.css"
   ],
   "exports": {
-    ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs",
-      "default": "./dist/index.mjs"
-    },
+    ".": "./dist/light.css",
     "./*.css": "./dist/*.css",
     "./scss": {
       "sass": "./scss/index.scss",
@@ -56,8 +52,6 @@
       "default": "./src/patchs/*.scss"
     }
   },
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
   "style": "./dist/light.css",
   "files": [
     "CHANGELOG.md",

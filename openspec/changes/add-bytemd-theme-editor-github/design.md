@@ -21,6 +21,7 @@
 
 - 不修改 `@tofrankie/bytemd` 的默认样式源码、组件结构或运行时主题切换逻辑。
 - 不把主题注入做成 JS API、Bytemd 插件工厂或运行时 DOM 探测逻辑。
+- 不发布用于转发默认主题的 JS 包入口；包根直接作为 `light.css` 样式入口。
 
 ## Decisions
 

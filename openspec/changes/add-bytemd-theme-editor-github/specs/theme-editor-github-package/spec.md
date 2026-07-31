@@ -18,6 +18,12 @@
 - **WHEN** 使用者安装并使用 `bytemd-theme-editor-github`
 - **THEN** 系统 MUST 允许其作为独立样式包消费，而不要求同步修改 `@tofrankie/bytemd` 的包内容或运行时 API
 
+#### Scenario: 从包根导入默认主题
+
+- **WHEN** 使用者执行 `import 'bytemd-theme-editor-github'`
+- **THEN** 包根入口 MUST 直接解析到 `dist/light.css`
+- **AND** 包 MUST NOT 发布仅用于转发主题的 JS 入口
+
 ### Requirement: 发布完整的 Primer 主题产物
 
 `bytemd-theme-editor-github` SHALL 发布 `pure.css`、所有 `@primer/primitives` functional concrete theme CSS 与预定义的 `auto-*.css` 自动配对主题。concrete theme 入口 MUST 表示固定 token 集；自动主题入口 MUST 在 light 与 dark 两组 token 之间自动切换。

@@ -25,4 +25,4 @@
 
 - 受影响代码：新增 `packages/theme-editor-github` 子包、主题构建脚本、`src/patchs/` 规则源、SCSS 源文件、README 与 artifacts 快照目录。
 - 受影响依赖：新增或复用 `@primer/primitives`、`sass` 以及主题构建所需的 Node 脚本依赖。
-- 受影响对外接口：新增 `bytemd-theme-editor-github` 包名、`pure.css`、所有 concrete theme、`auto-*.css`、SCSS mixin 与 `patchs/*.scss` 入口。
+- 受影响对外接口：新增 `bytemd-theme-editor-github` 包名；包根入口默认指向 `light.css`；并提供 `pure.css`、所有 concrete theme、`auto-*.css`、SCSS mixin 与 `patchs/*.scss` 入口。
