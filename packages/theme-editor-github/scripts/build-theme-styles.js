@@ -156,7 +156,6 @@ async function buildRuleSources(packageRoot) {
   return Promise.all(
     filenames.map(async filename => {
       const sourceName = filename.replace(/\.scss$/, '')
-      const sourceFile = path.join(patchsDir, filename)
       const result = await compileStringAsync(
         `@use './${filename}' as rules;\n@include rules.render-${sourceName}();`,
         {
@@ -333,17 +332,13 @@ function createAutoThemeTokenCss(ruleSources, pair) {
       return [
         createDeclarationBlock(source.container, source.baseTokens),
         createDeclarationBlock(lightSelector, source.themeTokens.get(pair.lightThemeKey)),
-        createDeclarationBlock(
-          lightAutoSelector,
-          source.themeTokens.get(pair.lightThemeKey),
-          { media: '(prefers-color-scheme: light)' }
-        ),
+        createDeclarationBlock(lightAutoSelector, source.themeTokens.get(pair.lightThemeKey), {
+          media: '(prefers-color-scheme: light)',
+        }),
         createDeclarationBlock(darkSelector, source.themeTokens.get(pair.darkThemeKey)),
-        createDeclarationBlock(
-          darkAutoSelector,
-          source.themeTokens.get(pair.darkThemeKey),
-          { media: '(prefers-color-scheme: dark)' }
-        ),
+        createDeclarationBlock(darkAutoSelector, source.themeTokens.get(pair.darkThemeKey), {
+          media: '(prefers-color-scheme: dark)',
+        }),
       ]
     })
     .join('\n\n')
