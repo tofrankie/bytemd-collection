@@ -1,5 +1,11 @@
 # Change log
 
+## bytemd-plugin-highlight-github@0.0.9
+
+> 2026-07-31
+
+- Upgrade `@primer/primitives` to `11.10.0`
+
 ## bytemd-plugin-highlight-github@0.0.8
 
 > 2026-07-31
