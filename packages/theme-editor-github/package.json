@@ -43,8 +43,18 @@
       "default": "./dist/index.mjs"
     },
     "./*.css": "./dist/*.css",
-    "./scss": "./scss/index.scss",
-    "./patchs/*.scss": "./src/patchs/*.scss"
+    "./scss": {
+      "sass": "./scss/index.scss",
+      "style": "./scss/index.scss",
+      "import": "./scss/index.scss",
+      "default": "./scss/index.scss"
+    },
+    "./patchs/*.scss": {
+      "sass": "./src/patchs/*.scss",
+      "style": "./src/patchs/*.scss",
+      "import": "./src/patchs/*.scss",
+      "default": "./src/patchs/*.scss"
+    }
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",

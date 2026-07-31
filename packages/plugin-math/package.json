@@ -47,11 +47,7 @@
         "default": "./dist/index.cjs"
       }
     },
-    "./styles/katex.css": {
-      "style": "./dist/styles/katex.css",
-      "import": "./dist/styles/katex.css",
-      "default": "./dist/styles/katex.css"
-    },
+    "./styles/katex.css": "./dist/styles/katex.css",
     "./locales/*": "./locales/*",
     "./lib/locales/*": "./locales/*"
   },
