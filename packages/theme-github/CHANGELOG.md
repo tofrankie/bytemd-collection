@@ -1,5 +1,7 @@
 # Changelog
 
+All notable changes to this package will be documented in this file.
+
 ## bytemd-theme-github@0.0.4
 
 > 2026-07-31

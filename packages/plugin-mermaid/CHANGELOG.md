@@ -1,4 +1,6 @@
-# Change log
+# Changelog
+
+All notable changes to this package will be documented in this file.
 
 ## bytemd-plugin-mermaid@0.0.3
 
