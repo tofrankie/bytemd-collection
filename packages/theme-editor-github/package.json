@@ -1,7 +1,7 @@
 {
   "name": "bytemd-theme-editor-github",
   "type": "module",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "packageManager": "pnpm@10.33.4",
   "description": "GitHub-flavored editor theme styles for bytemd with Primer-based tokens",
   "author": "Frankie <1426203851@qq.com>",

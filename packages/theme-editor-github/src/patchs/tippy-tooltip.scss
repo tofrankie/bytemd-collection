@@ -1,5 +1,5 @@
-@mixin render-tippy() {
-  /* 匹配 right action tooltip */
+@mixin render-tippy-tooltip() {
+  // 位于根节点之外
   .tippy-box:not([data-theme~='light-border']) {
     font-size: var(--base-size-12);
     line-height: var(--base-text-lineHeight-relaxed);
@@ -35,23 +35,6 @@
 
     .tippy-dropdown-title {
       color: var(--fgColor-accent);
-    }
-  }
-
-  /* 匹配 dropdown */
-  .tippy-box[data-theme~='light-border'] {
-    color: var(--fgColor-default);
-    background-color: var(--bgColor-default);
-    border: var(--borderWidth-thin) solid var(--borderColor-default) !important;
-    border-radius: var(--borderRadius-medium);
-
-    .bytemd-dropdown-title {
-      color: var(--fgColor-default);
-      border-bottom: 1px solid var(--borderColor-default);
-    }
-
-    .bytemd-dropdown-item:hover {
-      background-color: var(--button-invisible-bgColor-hover);
     }
   }
 }

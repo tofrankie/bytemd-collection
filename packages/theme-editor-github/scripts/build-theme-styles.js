@@ -67,11 +67,11 @@ const DEFAULT_THEME_TARGETS = [
     container: '.tippy-box',
     modes: {
       light: {
-        selectors: ["&[data-theme~='light-border']"],
+        selectors: ["&[data-theme~='light-border']", "&:not([data-theme~='light-border'])"],
         tokens: 'light',
       },
       dark: {
-        selectors: ["&[data-theme~='bytemd-dark']"],
+        selectors: ["&[data-theme~='light-border']", "&:not([data-theme~='light-border'])"],
         tokens: 'dark',
       },
     },

@@ -1,0 +1,18 @@
+@mixin render-tippy-toolbar() {
+  /* 匹配工具栏 toolbar dropdown */
+  .tippy-box[data-theme~='light-border'] {
+    color: var(--fgColor-default);
+    background-color: var(--bgColor-default);
+    border: var(--borderWidth-thin) solid var(--borderColor-default) !important;
+    border-radius: var(--borderRadius-medium);
+
+    .bytemd-dropdown-title {
+      color: var(--fgColor-default);
+      border-bottom: 1px solid var(--borderColor-default);
+    }
+
+    .bytemd-dropdown-item:hover {
+      background-color: var(--button-invisible-bgColor-hover);
+    }
+  }
+}

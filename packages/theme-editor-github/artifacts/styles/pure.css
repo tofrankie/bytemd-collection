@@ -298,7 +298,21 @@
   border-left: var(--borderWidth-thin) solid var(--borderColor-default);
 }
 
-/* 匹配 right action tooltip */
+/* 匹配工具栏 toolbar dropdown */
+.tippy-box[data-theme~=light-border] {
+  color: var(--fgColor-default);
+  background-color: var(--bgColor-default);
+  border: var(--borderWidth-thin) solid var(--borderColor-default) !important;
+  border-radius: var(--borderRadius-medium);
+}
+.tippy-box[data-theme~=light-border] .bytemd-dropdown-title {
+  color: var(--fgColor-default);
+  border-bottom: 1px solid var(--borderColor-default);
+}
+.tippy-box[data-theme~=light-border] .bytemd-dropdown-item:hover {
+  background-color: var(--button-invisible-bgColor-hover);
+}
+
 .tippy-box:not([data-theme~=light-border]) {
   font-size: var(--base-size-12);
   line-height: var(--base-text-lineHeight-relaxed);
@@ -328,19 +342,4 @@
 }
 .tippy-box:not([data-theme~=light-border]) .tippy-dropdown-title {
   color: var(--fgColor-accent);
-}
-
-/* 匹配 dropdown */
-.tippy-box[data-theme~=light-border] {
-  color: var(--fgColor-default);
-  background-color: var(--bgColor-default);
-  border: var(--borderWidth-thin) solid var(--borderColor-default) !important;
-  border-radius: var(--borderRadius-medium);
-}
-.tippy-box[data-theme~=light-border] .bytemd-dropdown-title {
-  color: var(--fgColor-default);
-  border-bottom: 1px solid var(--borderColor-default);
-}
-.tippy-box[data-theme~=light-border] .bytemd-dropdown-item:hover {
-  background-color: var(--button-invisible-bgColor-hover);
 }
