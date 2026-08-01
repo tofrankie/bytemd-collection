@@ -71,6 +71,12 @@
 - **WHEN** 某个 mode 声明多个 `selectors`，并为该 mode 声明 `media`
 - **THEN** 系统 MUST 将 selectors 作为同一个逗号分组原样输出到对应 `@media` 分支，且 MUST NOT 自动将它们与 target 的 container 拼接
 
+#### Scenario: 支持主题状态节点之外的 Tippy portal
+
+- **WHEN** Tippy tooltip 节点被挂载到主题状态节点之外的 portal 容器
+- **THEN** 生成的主题 token 选择器 MUST 使用 `body:has(#root > [data-color-mode='...'][data-*-theme='...'])` 关系匹配该 tooltip
+- **AND** 自动主题的 `auto` 分支 MUST 将对应的 portal 选择器放入匹配的 `@media (prefers-color-scheme: light|dark)` 块中
+
 ### Requirement: 主题 token 按引用闭包提取
 
 系统 SHALL 从 `@primer/primitives` 的主题目录与相关 functional 静态 token 文件中提取主题变量。构建流程 MUST 分别从每个 `src/patchs/*.scss` 规则输出里实际引用的 CSS 变量出发递归收集依赖，只输出最终闭包中的 token，而 MUST NOT 将全部 Primer token 无差别写入每个主题产物或其他 patch 的 container。

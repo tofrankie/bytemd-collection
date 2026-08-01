@@ -2,6 +2,12 @@
 
 All notable changes to this package will be documented in this file.
 
+## bytemd-theme-editor-github@0.0.4
+
+> 2026-08-01
+
+- Update bundle script
+
 ## bytemd-theme-editor-github@0.0.3
 
 > 2026-08-01

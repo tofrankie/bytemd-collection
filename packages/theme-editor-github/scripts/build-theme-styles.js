@@ -48,33 +48,18 @@ const STATIC_TOKEN_FILES = [
   'dist/css/functional/spacing/space.css',
   'dist/css/functional/typography/typography.css',
 ]
-// eslint-disable-next-line no-unused-vars
 const DEFAULT_THEME_TARGETS = [
   {
     container: '.bytemd',
-    modes: {
-      light: {
-        selectors: [],
-        tokens: 'light',
-      },
-      dark: {
-        selectors: [],
-        tokens: 'dark',
-      },
-    },
+    portal: false,
   },
   {
-    container: '.tippy-box',
-    modes: {
-      light: {
-        selectors: ["&[data-theme~='light-border']", "&:not([data-theme~='light-border'])"],
-        tokens: 'light',
-      },
-      dark: {
-        selectors: ["&[data-theme~='light-border']", "&:not([data-theme~='light-border'])"],
-        tokens: 'dark',
-      },
-    },
+    container: '.tippy-box[data-theme~=light-border]',
+    portal: false,
+  },
+  {
+    container: '.tippy-box:not([data-theme~=light-border])',
+    portal: true,
   },
 ]
 
@@ -139,7 +124,7 @@ async function buildPureCss(packageRoot) {
     }),
   ])
 
-  return [tippyBaseCss.trim(), tippyThemeCss.trim(), result.css.trim()].join('\n\n')
+  return [tippyBaseCss.trim(), tippyThemeCss.trim(), stripCharset(result.css)].join('\n\n')
 }
 
 async function buildRuleSources(packageRoot) {
@@ -319,36 +304,48 @@ function createFixedThemeTokenCss(themeName, ruleSources) {
 function createAutoThemeTokenCss(ruleSources, pair) {
   return ruleSources
     .flatMap(source => {
-      const lightSelector = createAutoSelector(source.container, 'light', pair)
-      const lightAutoSelector = createAutoSelector(source.container, 'light-auto', pair)
-      const darkSelector = createAutoSelector(source.container, 'dark', pair)
-      const darkAutoSelector = createAutoSelector(source.container, 'dark-auto', pair)
+      const lightSelectors = createAutoSelectors(source.container, 'light', pair)
+      const lightAutoSelectors = createAutoSelectors(source.container, 'light-auto', pair)
+      const darkSelectors = createAutoSelectors(source.container, 'dark', pair)
+      const darkAutoSelectors = createAutoSelectors(source.container, 'dark-auto', pair)
 
       return [
         createDeclarationBlock(source.container, source.baseTokens),
-        createDeclarationBlock(lightSelector, source.themeTokens.get(pair.lightThemeKey)),
-        createDeclarationBlock(lightAutoSelector, source.themeTokens.get(pair.lightThemeKey), {
-          media: '(prefers-color-scheme: light)',
-        }),
-        createDeclarationBlock(darkSelector, source.themeTokens.get(pair.darkThemeKey)),
-        createDeclarationBlock(darkAutoSelector, source.themeTokens.get(pair.darkThemeKey), {
-          media: '(prefers-color-scheme: dark)',
-        }),
+        ...lightSelectors.map(selector =>
+          createDeclarationBlock(selector, source.themeTokens.get(pair.lightThemeKey))
+        ),
+        ...lightAutoSelectors.map(selector =>
+          createDeclarationBlock(selector, source.themeTokens.get(pair.lightThemeKey), {
+            media: '(prefers-color-scheme: light)',
+          })
+        ),
+        ...darkSelectors.map(selector =>
+          createDeclarationBlock(selector, source.themeTokens.get(pair.darkThemeKey))
+        ),
+        ...darkAutoSelectors.map(selector =>
+          createDeclarationBlock(selector, source.themeTokens.get(pair.darkThemeKey), {
+            media: '(prefers-color-scheme: dark)',
+          })
+        ),
       ]
     })
     .join('\n\n')
 }
 
-function createAutoSelector(container, mode, pair) {
-  const isTippy = container === '.tippy-box'
+function createAutoSelectors(container, mode, pair) {
   const colorMode = mode.includes('auto') ? 'auto' : mode
   const themeType = mode.startsWith('light') ? 'light' : 'dark'
   const themeKey = themeType === 'light' ? pair.lightThemeKey : pair.darkThemeKey
   const stateSelector = `[data-color-mode='${colorMode}'][data-${themeType}-theme='${themeKey}']`
+  const target = DEFAULT_THEME_TARGETS.find(
+    ({ container: targetContainer }) => container === targetContainer
+  )
 
-  return isTippy
-    ? `body:has(#root > ${stateSelector}) ${container}`
-    : `${stateSelector} ${container}`
+  if (target?.portal) {
+    return [`body:has(#root > ${stateSelector}) ${container}`]
+  }
+
+  return [`${stateSelector} ${container}`]
 }
 
 function extractTopLevelSelectors(css) {
@@ -370,6 +367,10 @@ function extractTopLevelSelectors(css) {
 
 function countCharacters(value, character) {
   return value.split(character).length - 1
+}
+
+function stripCharset(css) {
+  return css.replace(/^\s*@charset\s+["'][^"']+["'];\s*/i, '').trim()
 }
 
 function createDeclarationBlock(selector, declarations, { media } = {}) {

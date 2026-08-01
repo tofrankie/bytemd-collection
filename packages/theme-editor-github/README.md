@@ -10,7 +10,13 @@ GitHub-flavored editor theme styles for bytemd, with bundled Primer-based tokens
 pnpm add bytemd-theme-editor-github
 ```
 
-Import one published theme:
+Import the package root for the default light theme:
+
+```js
+import 'bytemd-theme-editor-github'
+```
+
+Or import one published theme explicitly:
 
 ```js
 import 'bytemd-theme-editor-github/light.css'
@@ -94,20 +100,30 @@ If you want to mount tokens onto your own selectors, use the SCSS entry and defi
         container: '.tippy-box',
         modes: (
           light: (
-            selectors: ("[data-color-mode='light'][data-light-theme='light'] .tippy-box"),
+            selectors: (
+              "[data-color-mode='light'][data-light-theme='light'] .tippy-box[data-theme~='light-border']",
+              "body:has(#root > [data-color-mode='light'][data-light-theme='light']) .tippy-box:not([data-theme~='light-border'])"
+            ),
             tokens: 'light',
           ),
           light-auto: (
-            selectors: ("[data-color-mode='auto'][data-light-theme='light'] .tippy-box"),
+            selectors: (
+              "body:has(#root > [data-color-mode='auto'][data-light-theme='light']) .tippy-box:not([data-theme~='light-border'])"
+            ),
             tokens: 'light',
             media: '(prefers-color-scheme: light)',
           ),
           dark: (
-            selectors: ("[data-color-mode='dark'][data-dark-theme='dark'] .tippy-box"),
+            selectors: (
+              "[data-color-mode='dark'][data-dark-theme='dark'] .tippy-box[data-theme~='light-border']",
+              "body:has(#root > [data-color-mode='dark'][data-dark-theme='dark']) .tippy-box:not([data-theme~='light-border'])"
+            ),
             tokens: 'dark',
           ),
           dark-auto: (
-            selectors: ("[data-color-mode='auto'][data-dark-theme='dark'] .tippy-box"),
+            selectors: (
+              "body:has(#root > [data-color-mode='auto'][data-dark-theme='dark']) .tippy-box:not([data-theme~='light-border'])"
+            ),
             tokens: 'dark',
             media: '(prefers-color-scheme: dark)',
           ),
@@ -129,13 +145,14 @@ The example above generates this theme structure:
 }
 
 [data-color-mode='light'][data-light-theme='light'] .bytemd,
-[data-color-mode='light'][data-light-theme='light'] .tippy-box {
+[data-color-mode='light'][data-light-theme='light'] .tippy-box[data-theme~='light-border'],
+body:has(#root > [data-color-mode='light'][data-light-theme='light']) .tippy-box:not([data-theme~='light-border']) {
   /* light theme token */
 }
 
 @media (prefers-color-scheme: light) {
   [data-color-mode='auto'][data-light-theme='light'] .bytemd,
-  [data-color-mode='auto'][data-light-theme='light'] .tippy-box {
+  body:has(#root > [data-color-mode='auto'][data-light-theme='light']) .tippy-box:not([data-theme~='light-border']) {
     /* light theme token */
   }
 }
@@ -155,10 +172,12 @@ Individual patch sources are published under `patchs/` for advanced composition:
 
 ```scss
 @use 'bytemd-theme-editor-github/patchs/editor.scss' as editor;
-@use 'bytemd-theme-editor-github/patchs/tippy.scss' as tippy;
+@use 'bytemd-theme-editor-github/patchs/tippy-toolbar.scss' as tippy-toolbar;
+@use 'bytemd-theme-editor-github/patchs/tippy-tooltip.scss' as tippy-tooltip;
 
 @include editor.render-editor();
-@include tippy.render-tippy();
+@include tippy-toolbar.render-tippy-toolbar();
+@include tippy-tooltip.render-tippy-tooltip();
 ```
 
 To add a new patch, create a new `src/patchs/<name>.scss` file, expose a matching `render-<name>()` mixin, import it from `src/patchs/index.scss`, and run the package build.
