@@ -12,4 +12,4 @@ catalogs:
   prod:
     '@primer/css': ^15.2.0
     '@primer/primitives': ^11.10.0
-    '@tofrankie/github-markdown-css': ^0.0.6
+    '@tofrankie/github-markdown-css': ^0.0.7
