@@ -102,7 +102,7 @@ If you want to mount tokens onto your own selectors, use the SCSS entry and defi
           light: (
             selectors: (
               "[data-color-mode='light'][data-light-theme='light'] .tippy-box[data-theme~='light-border']",
-              "body:has(#root > [data-color-mode='light'][data-light-theme='light']) .tippy-box:not([data-theme~='light-border'])"
+              "body:has(#root > [data-color-mode='light'][data-light-theme='light']) .tippy-box:not([data-theme~='light-border'])",
             ),
             tokens: 'light',
           ),
@@ -116,7 +116,7 @@ If you want to mount tokens onto your own selectors, use the SCSS entry and defi
           dark: (
             selectors: (
               "[data-color-mode='dark'][data-dark-theme='dark'] .tippy-box[data-theme~='light-border']",
-              "body:has(#root > [data-color-mode='dark'][data-dark-theme='dark']) .tippy-box:not([data-theme~='light-border'])"
+              "body:has(#root > [data-color-mode='dark'][data-dark-theme='dark']) .tippy-box:not([data-theme~='light-border'])",
             ),
             tokens: 'dark',
           ),
@@ -146,13 +146,15 @@ The example above generates this theme structure:
 
 [data-color-mode='light'][data-light-theme='light'] .bytemd,
 [data-color-mode='light'][data-light-theme='light'] .tippy-box[data-theme~='light-border'],
-body:has(#root > [data-color-mode='light'][data-light-theme='light']) .tippy-box:not([data-theme~='light-border']) {
+body:has(#root > [data-color-mode='light'][data-light-theme='light'])
+  .tippy-box:not([data-theme~='light-border']) {
   /* light theme token */
 }
 
 @media (prefers-color-scheme: light) {
   [data-color-mode='auto'][data-light-theme='light'] .bytemd,
-  body:has(#root > [data-color-mode='auto'][data-light-theme='light']) .tippy-box:not([data-theme~='light-border']) {
+  body:has(#root > [data-color-mode='auto'][data-light-theme='light'])
+    .tippy-box:not([data-theme~='light-border']) {
     /* light theme token */
   }
 }
