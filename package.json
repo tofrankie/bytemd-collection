@@ -24,7 +24,7 @@
     "github:release": "tfr"
   },
   "devDependencies": {
-    "@fission-ai/openspec": "^1.9.0",
+    "@fission-ai/openspec": "^1.10.0",
     "@sveltejs/vite-plugin-svelte": "7.3.0",
     "@testing-library/svelte": "5.4.2",
     "@tofrankie/action": "^0.0.9",
