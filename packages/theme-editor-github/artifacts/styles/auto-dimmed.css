@@ -160,11 +160,11 @@ body:has(#root > [data-color-mode='dark'][data-dark-theme='dark-dimmed']) .tippy
 
 .bytemd {
   box-sizing: border-box;
-  color: var(--fgColor-default);
-  border: var(--borderWidth-thin) solid var(--borderColor-default);
-  background-color: var(--bgColor-default);
-  font-family: var(--fontStack-sansSerif, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji);
   height: 300px;
+  font-family: var(--fontStack-sansSerif, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji);
+  color: var(--fgColor-default);
+  background-color: var(--bgColor-default);
+  border: var(--borderWidth-thin) solid var(--borderColor-default);
 }
 .bytemd * {
   box-sizing: border-box;
@@ -179,18 +179,18 @@ body:has(#root > [data-color-mode='dark'][data-dark-theme='dark-dimmed']) .tippy
 }
 .bytemd-toolbar {
   padding: 4px 12px;
-  border-bottom: var(--borderWidth-thin) solid var(--borderColor-default);
-  background-color: var(--bgColor-muted);
-  user-select: none;
   overflow: hidden;
+  user-select: none;
+  background-color: var(--bgColor-muted);
+  border-bottom: var(--borderWidth-thin) solid var(--borderColor-default);
 }
 .bytemd-toolbar button {
-  appearance: none;
-  border: 0;
-  background: transparent;
-  color: inherit;
-  font: inherit;
   margin: 0;
+  font: inherit;
+  color: inherit;
+  appearance: none;
+  background: transparent;
+  border: 0;
 }
 .bytemd-toolbar-left {
   float: left;
@@ -200,29 +200,29 @@ body:has(#root > [data-color-mode='dark'][data-dark-theme='dark-dimmed']) .tippy
 }
 .bytemd-toolbar-tab {
   display: inline-block;
-  cursor: pointer;
-  padding-left: 8px;
   padding-right: 8px;
-  line-height: 24px;
+  padding-left: 8px;
   font-size: 14px;
+  line-height: 24px;
+  cursor: pointer;
 }
 .bytemd-toolbar-tab-active {
   color: var(--fgColor-accent);
 }
 .bytemd-toolbar-icon {
   display: inline-block;
+  margin-right: 6px;
+  margin-left: 6px;
   vertical-align: top;
   cursor: pointer;
   border-radius: var(--borderRadius-medium);
-  margin-left: 6px;
-  margin-right: 6px;
 }
 .bytemd-toolbar-icon svg,
 .bytemd-toolbar-icon img {
   display: block;
-  padding: 4px;
   width: 24px;
   height: 24px;
+  padding: 4px;
 }
 .bytemd-toolbar-icon:hover {
   background-color: var(--button-invisible-bgColor-hover);
@@ -231,8 +231,8 @@ body:has(#root > [data-color-mode='dark'][data-dark-theme='dark-dimmed']) .tippy
   color: var(--fgColor-accent);
 }
 .bytemd-toolbar .tippy-content {
-  padding-left: 0;
   padding-right: 0;
+  padding-left: 0;
 }
 .bytemd-dropdown {
   max-height: 300px;
@@ -242,13 +242,13 @@ body:has(#root > [data-color-mode='dark'][data-dark-theme='dark-dimmed']) .tippy
 .bytemd-dropdown-title {
   margin: 0 12px;
   font-weight: 500;
-  border-bottom: var(--borderWidth-thin) solid var(--borderColor-default);
   line-height: 32px;
   color: var(--fgColor-muted);
+  border-bottom: var(--borderWidth-thin) solid var(--borderColor-default);
 }
 .bytemd-dropdown-item {
-  padding: 4px 12px;
   height: 32px;
+  padding: 4px 12px;
   cursor: pointer;
 }
 .bytemd-dropdown-item:hover {
@@ -259,9 +259,9 @@ body:has(#root > [data-color-mode='dark'][data-dark-theme='dark-dimmed']) .tippy
 }
 .bytemd-dropdown-item-icon svg {
   display: block;
-  padding: 4px;
   width: 24px;
   height: 24px;
+  padding: 4px;
 }
 .bytemd-dropdown-item-title {
   display: inline-block;
@@ -274,9 +274,9 @@ body:has(#root > [data-color-mode='dark'][data-dark-theme='dark-dimmed']) .tippy
 }
 .bytemd-editor {
   display: inline-block;
-  vertical-align: top;
   height: 100%;
   overflow: hidden;
+  vertical-align: top;
 }
 .bytemd-editor .cm-editor {
   height: 100%;
@@ -297,9 +297,9 @@ body:has(#root > [data-color-mode='dark'][data-dark-theme='dark-dimmed']) .tippy
 }
 .bytemd-editor .cm-editor .cm-content {
   max-width: 800px;
-  margin: 0 auto;
   min-height: 100%;
   padding: 16px 4%;
+  margin: 0 auto;
   caret-color: var(--codeMirror-cursor-fgColor);
 }
 .bytemd-editor .cm-editor .cm-line {
@@ -307,24 +307,24 @@ body:has(#root > [data-color-mode='dark'][data-dark-theme='dark-dimmed']) .tippy
 }
 .bytemd-preview {
   display: inline-block;
-  vertical-align: top;
   height: 100%;
   overflow: auto;
+  vertical-align: top;
 }
 .bytemd-preview .markdown-body {
   max-width: 800px;
-  margin: 0 auto;
   padding: 16px 4%;
+  margin: 0 auto;
 }
 .bytemd-sidebar {
-  display: inline-block;
-  vertical-align: top;
-  height: 100%;
-  overflow: auto;
-  width: 280px;
   position: relative;
+  display: inline-block;
+  width: 280px;
+  height: 100%;
   padding: 0 16px;
+  overflow: auto;
   font-size: 16px;
+  vertical-align: top;
   border-left: var(--borderWidth-thin) solid var(--borderColor-default);
 }
 .bytemd-sidebar-close {
@@ -362,8 +362,8 @@ body:has(#root > [data-color-mode='dark'][data-dark-theme='dark-dimmed']) .tippy
   vertical-align: top;
 }
 .bytemd-help li {
-  list-style: none;
   margin-bottom: 12px;
+  list-style: none;
 }
 .bytemd-help-icon {
   padding: 2px 0;
@@ -376,22 +376,22 @@ body:has(#root > [data-color-mode='dark'][data-dark-theme='dark-dimmed']) .tippy
   font-size: 12px;
 }
 .bytemd-toc li {
-  list-style: none;
   margin-bottom: 4px;
+  list-style: none;
 }
 .bytemd-toc button {
   width: 100%;
-  border: 0;
-  background: transparent;
-  color: inherit;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font: inherit;
   font-size: 14px;
   line-height: 2;
-  cursor: pointer;
+  color: inherit;
   text-align: left;
-  text-overflow: ellipsis;
-  overflow: hidden;
   white-space: nowrap;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
 }
 .bytemd-toc-active {
   color: var(--fgColor-accent);
@@ -403,8 +403,8 @@ body:has(#root > [data-color-mode='dark'][data-dark-theme='dark-dimmed']) .tippy
 .bytemd-status {
   font-size: 12px;
   line-height: 24px;
-  border-top: var(--borderWidth-thin) solid var(--borderColor-default);
   user-select: none;
+  border-top: var(--borderWidth-thin) solid var(--borderColor-default);
 }
 .bytemd-status-left {
   float: left;
@@ -427,27 +427,24 @@ body:has(#root > [data-color-mode='dark'][data-dark-theme='dark-dimmed']) .tippy
   color: var(--fgColor-accent);
 }
 .bytemd-status-right button {
-  border: 0;
-  background: transparent;
-  color: inherit;
-  font: inherit;
   padding: 0;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 0;
 }
 .bytemd-status-right input {
-  vertical-align: middle;
   margin-right: 3px;
+  vertical-align: middle;
 }
 .bytemd-status-error {
   color: var(--fgColor-danger);
 }
 .bytemd-fullscreen.bytemd {
   position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  border: none;
+  inset: 0;
   height: 100vh !important;
+  border: none;
 }
 .bytemd-split .bytemd-preview {
   border-left: var(--borderWidth-thin) solid var(--borderColor-default);

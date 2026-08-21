@@ -3,7 +3,7 @@
 @use './tippy-tooltip' as tippy-tooltip;
 
 @mixin render-rules() {
-  @include editor.render-editor();
-  @include tippy-toolbar.render-tippy-toolbar();
-  @include tippy-tooltip.render-tippy-tooltip();
+  @include editor.render-editor;
+  @include tippy-toolbar.render-tippy-toolbar;
+  @include tippy-tooltip.render-tippy-tooltip;
 }

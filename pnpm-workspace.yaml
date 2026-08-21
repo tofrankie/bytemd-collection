@@ -4,7 +4,7 @@ packages:
 
 catalogs:
   build:
-    sass: ^1.102.0
+    sass: ^1.103.1
 
   peer:
     bytemd: ^1.22.0

@@ -82,5 +82,5 @@
 }
 
 @mixin render-rules() {
-  @include rules.render-rules();
+  @include rules.render-rules;
 }

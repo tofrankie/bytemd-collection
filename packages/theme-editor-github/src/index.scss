@@ -1,3 +1,2 @@
 @use './patchs' as editor;
-
-@include editor.render-rules();
+@include editor.render-rules;

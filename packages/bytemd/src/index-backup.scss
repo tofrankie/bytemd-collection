@@ -1,7 +1,8 @@
 @import 'codemirror-ssr/lib/codemirror.css';
 @import 'tippy.js/dist/tippy.css';
 @import 'tippy.js/themes/light-border.css';
-@import '@primer/css/support/variables/color-system.scss';
+@import '@primer/css/support/variables/color-system';
+
 $border-color: $gray-200;
 $primary: $blue;
 $sidebar-width: 280px;
@@ -12,20 +13,16 @@ $max-width: 800px;
   box-sizing: border-box;
   height: 300px;
   font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    Segoe UI,
-    Helvetica,
-    Arial,
-    sans-serif,
-    Apple Color Emoji,
-    Segoe UI Emoji;
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji';
   color: $gray-900;
   background-color: $white;
   border: 1px solid $border-color;
+
   * {
     box-sizing: border-box;
   }
+
   &-hidden {
     display: none !important;
   }
@@ -42,12 +39,7 @@ $max-width: 800px;
   .CodeMirror,
   code,
   kbd {
-    font-family:
-      SFMono-Regular,
-      Consolas,
-      Liberation Mono,
-      Menlo,
-      monospace;
+    font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
   }
 
   &-toolbar {
@@ -72,6 +64,7 @@ $max-width: 800px;
       font-size: 14px;
       line-height: 24px;
       cursor: pointer;
+
       &-active {
         color: $primary;
       }
@@ -84,6 +77,7 @@ $max-width: 800px;
       vertical-align: top;
       cursor: pointer;
       border-radius: 4px;
+
       svg,
       img {
         display: block;
@@ -91,9 +85,11 @@ $max-width: 800px;
         height: 24px;
         padding: 4px;
       }
+
       &:hover {
         background-color: $border-color;
       }
+
       &-active {
         color: $blue-500;
       }
@@ -109,6 +105,7 @@ $max-width: 800px;
     max-height: 300px;
     overflow: auto;
     font-size: 14px;
+
     &-title {
       margin: 0 12px;
       font-weight: 500;
@@ -116,16 +113,19 @@ $max-width: 800px;
       color: $gray-700;
       border-bottom: 1px solid $border-color;
     }
+
     &-item {
       height: 32px;
       padding: 4px 12px;
       cursor: pointer;
+
       &:hover {
         background-color: $gray-100;
       }
 
       &-icon {
         display: inline-block;
+
         svg {
           display: block;
           width: 24px;
@@ -133,6 +133,7 @@ $max-width: 800px;
           padding: 4px;
         }
       }
+
       &-title {
         display: inline-block;
         line-height: 24px;
@@ -151,18 +152,22 @@ $max-width: 800px;
     height: 100%;
     overflow: hidden;
     vertical-align: top;
+
     .CodeMirror {
       height: 100%;
       font-size: 14px;
       line-height: 1.5;
+
       pre.CodeMirror-placeholder {
         color: $gray-400;
       }
+
       .CodeMirror-lines {
         max-width: $max-width;
         padding: 16px 0;
         margin: 0 auto;
       }
+
       pre.CodeMirror-line,
       pre.CodeMirror-line-like {
         padding: 0 4%;
@@ -175,6 +180,7 @@ $max-width: 800px;
     height: 100%;
     overflow: auto;
     vertical-align: top;
+
     .markdown-body {
       max-width: $max-width;
       padding: 16px 4%;
@@ -192,21 +198,25 @@ $max-width: 800px;
     font-size: 16px;
     vertical-align: top; // Safari
     border-left: 1px solid $border-color;
+
     &-close {
       position: absolute;
       top: 0;
       right: 0;
       padding: 16px;
       cursor: pointer;
+
       &:hover {
         color: $primary;
       }
     }
+
     h2 {
       margin: 32px 0 16px;
       font-size: 16px;
       font-weight: 600;
     }
+
     ul {
       padding-left: 0;
       color: $gray-400;
@@ -215,28 +225,35 @@ $max-width: 800px;
 
   &-help {
     font-size: 13px;
+
     ul {
       line-height: 20px;
+
       svg {
         display: block;
         width: 16px;
         height: 16px;
       }
+
       div {
         display: inline-block;
         vertical-align: top;
       }
     }
+
     li {
       margin-bottom: 12px;
       list-style: none;
     }
+
     &-icon {
       padding: 2px 0;
     }
+
     &-title {
       padding-left: 8px;
     }
+
     &-content {
       float: right;
       font-size: 12px;
@@ -254,10 +271,12 @@ $max-width: 800px;
       cursor: pointer;
       list-style: none;
     }
+
     &-active {
       color: $primary;
       background-color: $gray-100;
     }
+
     &-first {
       font-weight: 500;
     }
@@ -268,30 +287,38 @@ $max-width: 800px;
     line-height: 24px;
     user-select: none;
     border-top: 1px solid $border-color;
+
     &-left {
       float: left;
+
       span {
         padding-left: 16px;
       }
+
       strong {
         font-weight: 600;
       }
     }
+
     &-right {
       float: right;
+
       label,
       span {
         margin-right: 16px;
         cursor: pointer;
       }
+
       span:hover {
         color: $primary;
       }
+
       input {
         margin-right: 3px; // CSS reset
         vertical-align: middle;
       }
     }
+
     &-error {
       color: $red-500;
     }
@@ -300,10 +327,7 @@ $max-width: 800px;
   &-fullscreen {
     &.bytemd {
       position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
+      inset: 0;
       height: 100vh !important; // override user set height
       border: none;
     }

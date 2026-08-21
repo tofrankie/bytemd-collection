@@ -82,9 +82,6 @@ body {
 .example-body .bytemd {
   box-sizing: border-box;
   height: calc(100vh - 50px);
-}
-
-.bytemd {
   border: 0;
 }
 
@@ -123,7 +120,7 @@ body {
   background: #0969da;
 }
 
-@media (max-width: 720px) {
+@media (width <= 720px) {
   .home-page {
     padding: 40px 20px;
   }

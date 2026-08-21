@@ -37,9 +37,11 @@
   a[aria-describedby='footnote-label']::before {
     content: '[';
   }
+
   a[aria-describedby='footnote-label']::after {
     content: ']';
   }
+
   #user-content-footnote-label {
     position: relative !important;
     visibility: hidden !important;
@@ -53,6 +55,7 @@
     clip: auto !important;
     clip-path: none !important;
   }
+
   #user-content-footnote-label::before {
     display: block;
     visibility: visible !important;
@@ -61,6 +64,7 @@
     content: '';
     border-top: 1px solid var(--borderColor-default);
   }
+
   ol:has(> li[id*='user-content-user-content-']) {
     padding-left: var(--base-size-16);
     font-size: 12px;

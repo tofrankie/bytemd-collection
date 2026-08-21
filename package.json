@@ -16,6 +16,7 @@
     "lint": "run-s lint:* typecheck",
     "lint:eslint": "eslint . --cache --fix",
     "lint:prettier": "prettier . --cache --write --log-level silent",
+    "lint:stylelint": "stylelint '**/*.{html,css,scss}' --cache --fix",
     "publint": "pnpm -r --if-present publint",
     "typecheck": "pnpm -r --if-present typecheck",
     "test": "pnpm -r --if-present test",
@@ -29,17 +30,19 @@
     "@tofrankie/action": "^0.0.9",
     "@tofrankie/eslint": "^0.5.0",
     "@tofrankie/prettier": "^0.2.0",
+    "@tofrankie/stylelint": "^0.5.0",
     "@tofrankie/tsconfig": "^0.2.1",
     "@types/node": "^26.2.0",
     "eslint": "^10.8.1",
     "jsdom": "^30.0.1",
     "npm-run-all2": "^9.0.3",
     "prettier": "^3.9.6",
-    "publint": "^0.3.23",
+    "publint": "^0.3.24",
     "sass": "catalog:build",
-    "svelte": "5.56.9",
+    "stylelint": "^17.14.1",
+    "svelte": "5.56.10",
     "tsdown": "^0.22.14",
     "typescript": "^5.9.3",
-    "vitest": "^4.1.10"
+    "vitest": "^4.1.11"
   }
 }
