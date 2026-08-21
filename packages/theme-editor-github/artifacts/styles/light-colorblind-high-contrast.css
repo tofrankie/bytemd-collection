@@ -200,6 +200,9 @@
 .bytemd-editor .cm-editor .cm-line {
   padding: 0;
 }
+.bytemd-editor .cm-link {
+  text-underline-offset: 0.2rem;
+}
 .bytemd-preview {
   display: inline-block;
   height: 100%;
