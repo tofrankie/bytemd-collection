@@ -2,6 +2,12 @@
 
 All notable changes to this package will be documented in this file.
 
+## bytemd-theme-editor-github@0.0.5
+
+> 2026-08-21
+
+- Update editor link style
+
 ## bytemd-theme-editor-github@0.0.4
 
 > 2026-08-01
