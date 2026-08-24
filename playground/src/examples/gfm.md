@@ -8,10 +8,10 @@ Automatic URL Linking: https://github.com/pd4d10/bytemd
 - [ ] Update the website
 - [ ] Contact the media
 
-| Syntax    | Description |
-| --------- | ----------- |
-| Header    | Title       |
-| Paragraph | Text        |
+| Syntax | Description |
+| --- | --- |
+| Header | Title |
+| Paragraph | Text |
 
 ## Footnotes
 
