@@ -2,6 +2,12 @@
 
 All notable changes to this package will be documented in this file.
 
+## bytemd-theme-github@0.0.8
+
+> 2026-11-15
+
+- Upgrade to `@tofrankie/github-markdown-css@0.0.8` (Set the markdown `<hr>` thickness to 1px)
+
 ## bytemd-theme-github@0.0.7
 
 > 2026-08-18
