@@ -24,25 +24,25 @@
     "github:release": "tfr"
   },
   "devDependencies": {
-    "@fission-ai/openspec": "^1.10.0",
-    "@sveltejs/vite-plugin-svelte": "7.3.0",
+    "@fission-ai/openspec": "^2.0.0",
+    "@sveltejs/vite-plugin-svelte": "7.3.1",
     "@testing-library/svelte": "5.4.2",
     "@tofrankie/action": "^0.0.9",
     "@tofrankie/eslint": "^0.5.0",
     "@tofrankie/prettier": "^0.3.0",
     "@tofrankie/stylelint": "^0.5.0",
     "@tofrankie/tsconfig": "^0.2.1",
-    "@types/node": "^26.2.0",
-    "eslint": "^10.9.0",
+    "@types/node": "^26.6.6",
+    "eslint": "^10.15.0",
     "jsdom": "^30.0.1",
-    "npm-run-all2": "^9.0.3",
-    "prettier": "^3.9.6",
-    "publint": "^0.3.24",
+    "npm-run-all2": "^9.0.4",
+    "prettier": "^3.10.1",
+    "publint": "^0.3.25",
     "sass": "catalog:build",
     "stylelint": "^17.14.1",
-    "svelte": "5.56.10",
-    "tsdown": "^0.22.14",
+    "svelte": "5.57.3",
+    "tsdown": "^0.23.7",
     "typescript": "^5.9.3",
-    "vitest": "^4.1.11"
+    "vitest": "^5.1.0"
   }
 }
